@@ -1,0 +1,27 @@
+.statview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 20%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+}
+
+.statview ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.statview ul li {
+    margin: 0.5rem 0;
+    color: white;
+    font-size: 1.5rem;
+    
+}
