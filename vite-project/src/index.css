@@ -32,3 +32,9 @@ body {
   width: 100vw;
   background:linear-gradient(135deg, #242424 25%, #0dff00 100%);
 }
+
+.Logo img {
+  height: 100px;
+  width: 100px;
+  fill: white;
+}
