@@ -1,6 +1,6 @@
-import React from "react";
-import "./navbar.css"
-import musicLogo from ".././assets/logo.svg"
+import "../styles/navbar.css"
+import musicLogo from "../assets/logo.svg"
+import { Link } from "react-router-dom";
 
 function Navbar () {
     return (
@@ -11,12 +11,14 @@ function Navbar () {
 
             <ul className="navbar-list">
                 <li className="navbar-item"><a href="/">Home</a></li>
-                <li className="navbar-item"><a href="/favorites">Favorites</a></li>
+                <Link to='/favourite'><li className="navbar-item"><a href="/favorites">Favorites</a></li></Link>
                 <div className="navbar-item">
                     <input type="text" placeholder="Search" />
                 </div>
             </ul>
+            
         </nav>
+
         )
     }
 

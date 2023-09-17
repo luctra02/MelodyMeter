@@ -1,18 +1,24 @@
-
-import './App.css'
-import Home from './Home'
+import './styles/App.css'
+import Home from './components/Home'
 import Navbar from './components/navbar'
-import Statview from './components/statview'
+import Favourite from './components/favourite'
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
 
   return (
-    <div className="App">
-      <Navbar />
-      <Statview />
-      <Home />
+  
+    <Router >
+      <div className="App">
+        <Navbar />
 
-    </div>
+      </div>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/favourite' element={<Favourite />}/>
+      </Routes>
+    </Router>
+
   );
 }
 

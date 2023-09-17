@@ -1,6 +1,5 @@
-
 import React from 'react';
-import './statview.css';
+import '../styles/statview.css';
 
 
 function statview() {
