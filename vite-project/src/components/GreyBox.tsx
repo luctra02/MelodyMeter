@@ -17,7 +17,6 @@ function GreyBox() {
             <img src='https://i.scdn.co/image/ab67616d00001e022a038d3bf875d23e4aeaa84e' className='Song-Image'></img>
             <h3>Happier Than Ever</h3>
         </div>
-        
     </div>
   </div>;
 }

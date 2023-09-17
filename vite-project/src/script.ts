@@ -18,9 +18,9 @@ export async function getAccessToken(clientId: string): Promise<string> {
     return access_token;
 }
 
-async function fetchSongInfo(token: string): Promise<any> {
-    const songName = "Never gonna give you up"
-    const result = await fetch(`https://api.spotify.com/v1/search?q=${songName}&type=track`, {
+export async function fetchSongInfo(token: string, searchTerm: string): Promise<any> {
+    console.log(searchTerm)
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 

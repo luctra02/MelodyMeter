@@ -1,7 +1,8 @@
 import '../styles/songDisplay.css'
 import React, { useEffect, useState } from 'react';
 import fetchSongInfo from '../script.js';
-
+import Statview from './StatView'
+import GreyBox from "./GreyBox"
 
 
 function SongDisplay() {
@@ -29,13 +30,18 @@ function SongDisplay() {
         getStats();
     }, []);
 
-    return <div className="grey-box">
-      <div className="Song">
-          <img src={songImage} className='Song-Image'></img>
-          <h1 className='songArtist'>Billie Eilish - Happier Than Ever</h1>
-      </div>
-      </div>
-      ;
+    return (
+        <div>
+            <Statview />
+
+            <div className="grey-box">
+                <div className="Song">
+                    <img src={songImage} className='Song-Image'></img>
+                    <h1 className='songArtist'>Billie Eilish - Happier Than Ever</h1>
+                </div>
+            </div>
+        </div>
+    )
   }
 
 export default SongDisplay;
