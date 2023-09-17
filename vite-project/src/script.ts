@@ -27,14 +27,13 @@ async function fetchSongInfo(token: string): Promise<any> {
     return await result.json();
 }
 
-async function fetchAudioFeatures(token: string, id: string): Promise<any> {
+export default async function fetchAudioFeatures(token: string | null, id: string): Promise<any> {
     const result = await fetch(`https://api.spotify.com/v1/audio-features/${id}`, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
     return await result.json();
 }
-
 
 var accessToken:string
 if (sessionStorage.getItem("accesstoken") == null) {
