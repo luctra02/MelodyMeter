@@ -1,5 +1,5 @@
 #favouriteTitle{
-    height: 30vh;
+    height: 4rem;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@
 }
 
 .fullpageBox {
-    height: 85vh;
+    padding-bottom: 5vh;
     width: 90vw;
     left: 5vw;
     top: 10vh;
