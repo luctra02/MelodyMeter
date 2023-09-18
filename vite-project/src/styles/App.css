@@ -15,5 +15,6 @@
 body { 
   margin: 0;
   padding: 0;
-  background:linear-gradient(135deg, #242424 25%, #0dff00 100%);
+  /* background:linear-gradient(135deg, #242424 25%, #0dff00 100%); */
+  background:black
 }
