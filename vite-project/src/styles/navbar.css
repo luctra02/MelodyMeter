@@ -14,8 +14,6 @@
   .navbar-logo {
     height: 50px;
     padding: 10px;
-    will-change: filter;
-    transition: filter 300ms;
     display: flex;
   }
 
@@ -27,16 +25,23 @@
 
   
   .navbar-list {
+    height: 50px;
+    padding: 10px;
     right: 0;
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 0;
     position: absolute;
+    margin: 0.4rem 0.3rem;
   }
   
   .navbar-item {
     margin: 0 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
   }
   
   .navbar-item a {
@@ -46,4 +51,10 @@
   
   .navbar-item a:hover {
     text-decoration: underline;
+  }
+
+  .navbar-logo p {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0.4rem 0.3rem;
   }

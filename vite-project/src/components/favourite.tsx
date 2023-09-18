@@ -4,7 +4,7 @@ import '../styles/index.css'
 
 function favourite() {
     return (
-        <div>
+        <div className='fullpageBox'>
             <h1 id = "favouriteTitle">My Favourite Songs</h1> 
             <ul id = "favouriteList">
                 <li>

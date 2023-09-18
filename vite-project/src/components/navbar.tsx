@@ -11,7 +11,7 @@ function Navbar () {
             </div>
 
             <ul className="navbar-list">
-                <li className="navbar-item"><a href="/">Home</a></li>
+                <Link to='/'><li className="navbar-item"><a href="/">Home</a></li></Link>
                 <Link to='/favourite'><li className="navbar-item"><a href="/favorites">Favorites</a></li></Link>
                 <div className="navbar-item">
                     <input type="text" placeholder="Search" />

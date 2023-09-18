@@ -9,8 +9,22 @@
     
 }
 
-
+.fullpageBox {
+    height: 85vh;
+    width: 90vw;
+    left: 5vw;
+    top: 10vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2vw;
+    background-color: #eef5e5;
+}
 
 ul li{
     margin-bottom: 3vh;
+    font-size: 2rem;
+    color: #2a2a2a;
+    font-weight: bold;
 }
