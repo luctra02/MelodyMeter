@@ -18,16 +18,16 @@ export async function getAccessToken(clientId: string): Promise<string> {
     return access_token;
 }
 
-async function fetchSongInfo(token: string): Promise<any> {
-    const songName = "Never gonna give you up"
-    const result = await fetch(`https://api.spotify.com/v1/search?q=${songName}&type=track`, {
+export async function fetchSongInfo(token: string, searchTerm: string): Promise<any> {
+    console.log(searchTerm)
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
 
     return await result.json();
 }
 
-async function fetchAudioFeatures(token: string, id: string): Promise<any> {
+export default async function fetchAudioFeatures(token: string | null, id: string): Promise<any> {
     const result = await fetch(`https://api.spotify.com/v1/audio-features/${id}`, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
     });
@@ -35,6 +35,13 @@ async function fetchAudioFeatures(token: string, id: string): Promise<any> {
     return await result.json();
 }
 
+export async function fetchArtist(token: string | null, name: string): Promise<any> {
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${name}&type=artist`, {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await result.json();
+}
 
 var accessToken:string
 if (sessionStorage.getItem("accesstoken") == null) {
@@ -44,10 +51,10 @@ if (sessionStorage.getItem("accesstoken") == null) {
     accessToken = String(sessionStorage.getItem("accesstoken"))
 }
 
-const songInfo = await fetchSongInfo(accessToken)
+/* const songInfo = await fetchSongInfo(accessToken)
 console.log(songInfo.tracks.items[0].id)
 
 const audioFeatures = await fetchAudioFeatures(accessToken, songInfo.tracks.items[0].id)
 console.log(audioFeatures)
 const audioFeaturesDict = {danceability: audioFeatures.danceability, energy: audioFeatures.energy, loudness: audioFeatures.loudness, positivity: audioFeatures.valence}
-console.log(audioFeaturesDict)
+console.log(audioFeaturesDict) */
