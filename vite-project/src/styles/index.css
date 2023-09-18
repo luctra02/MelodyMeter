@@ -24,11 +24,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center;;
 }
 
 .Logo img {
   height: 100px;
   width: 100px;
   fill: white;
+}
+
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 25px;
+  color: black;
+  padding: 10px
+
+
+
+}
+
+input:focus {
+    outline: none;
+
 }
