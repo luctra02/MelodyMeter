@@ -1,20 +1,23 @@
 import musicLogo from "../assets/logo.svg"
-import Statview from './StatView'
 import GreyBox from "./GreyBox"
 import '../styles/index.css'
 import SongDisplay from './SongDisplay'
 import { useEffect, useState } from "react"
 import { fetchSongInfo } from '../script.js'
 import { useNavigate } from 'react-router-dom';
+import App from '../App'
 
+interface HomeProps {
+    updateSearchTerm: (searchTerm: string) => void;
+  }
 
-function Home() {
+function Home({ updateSearchTerm }: HomeProps) {
     const navigate = useNavigate();
-    
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(e.target.value);
+        updateSearchTerm(e.target.value);
       };
 
     const handleSearch = () => {
@@ -29,7 +32,7 @@ function Home() {
       };
 
     const getSongs = async () => {
-        const sessionKey = sessionStorage.getItem("accesstoken")
+        const sessionKey = String(sessionStorage.getItem("accesstoken"))
         const songInfo = await fetchSongInfo(sessionKey, searchTerm);
         navigate('/searchDisplay', {state: {songInfo: songInfo}});
 
@@ -50,7 +53,9 @@ function Home() {
                             onKeyPress={handleKeyPress}/>
                 </div>
             </div>
+
         </div>
+
     )
 }
 

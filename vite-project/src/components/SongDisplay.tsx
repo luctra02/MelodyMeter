@@ -1,6 +1,6 @@
 import '../styles/songDisplay.css'
 import React, { useEffect, useState } from 'react';
-import fetchSongInfo from '../script.js';
+import fetchSongInfo from '../script';
 import Statview from './StatView'
 import GreyBox from "./GreyBox"
 
