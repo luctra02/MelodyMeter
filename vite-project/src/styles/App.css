@@ -3,6 +3,7 @@
   height: 100vh;
   text-align: center;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color: #1b250e;
 }
 
 *{
@@ -10,11 +11,15 @@
   padding: 0;
 }
 
-
+.Logo {
+  height: 100px;
+  width: 100px;
+  fill: white;
+  padding: 20px;
+}
 
 body { 
   margin: 0;
   padding: 0;
-  /* background:linear-gradient(135deg, #242424 25%, #0dff00 100%); */
-  background:black
+  background:linear-gradient(135deg, #47286c 25%, #3d42a4 100%);
 }

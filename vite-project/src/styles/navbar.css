@@ -1,6 +1,6 @@
 /* src/Navbar.css */
 .navbar {
-    background-color: #2a2a2a;
+    background-color: transparent;
     position: fixed;
     top: 0;
     width: 100%;
@@ -16,6 +16,7 @@
     padding: 10px;
     will-change: filter;
     transition: filter 300ms;
+    display: flex;
   }
 
   .navbar-logo img {

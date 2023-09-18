@@ -7,6 +7,7 @@ function Navbar () {
         <nav className="navbar">
             <div className="navbar-logo">
                 <img src={musicLogo} alt="logo"/>
+                <p>MelodyMeter</p>
             </div>
 
             <ul className="navbar-list">

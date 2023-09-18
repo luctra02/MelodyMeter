@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #eef5e5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,16 +36,13 @@
 input[type=text] {
   width: 100%;
   box-sizing: border-box;
-  background-color: white;
+  background-color: #eef5e5;
   border: none;
   border-radius: 20px;
   width: 200px;
   height: 25px;
-  color: black;
+  color: #1b250e;
   padding: 10px
-
-
-
 }
 
 input:focus {
