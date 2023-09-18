@@ -38,3 +38,8 @@
     display: flex;
     flex-direction: column;
 }
+
+.Song:hover {
+    background-color: #3a3a3a;
+    border-radius: 2vw;
+}
