@@ -14,12 +14,17 @@ function TracksDisplay(){
     const [playlistTracksArray, setPlaylistTracksArray] = useState<any[]>([]);
     
 
-    function HandleClick(item: any){
+    function HandleClickAlbum(item: any){
         navigate('/SongDisplay', {state: {albumId: item.id}});
+    }
+
+    function HandleClickPlaylist(item: any){
+        navigate('/SongDisplay', {state: {playlistId: item.track.id}});
     }
     
 
     useEffect(() => {
+        console.log(albumId)
         const getStats = async () => {
             const sessionKey = sessionStorage.getItem("accesstoken");
             if(albumId){
@@ -44,7 +49,7 @@ function TracksDisplay(){
         <h1>Tracks</h1>
         <div className="Song-List">
             {albumTracksArray.map((item: any) => (
-                <button key={item.id} onClick={() => HandleClick(item)}>
+                <button key={item.id} onClick={() => HandleClickAlbum(item)}>
                     <div className="Song">
                         {/* <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img> */}
                         <h3>{item.name} - 
@@ -59,7 +64,7 @@ function TracksDisplay(){
         </div>
         <div className="Song-List">
             {playlistTracksArray.map((item: any,) => (
-                <button key={item.track.id} onClick={() => HandleClick(item)}>
+                <button key={item.track.id} onClick={() => HandleClickPlaylist(item)}>
                     <div className="Song" >
                         {/* <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img> */}
                         <h3>

@@ -76,6 +76,14 @@ export async function fetchPlaylistTracks(token: string | null, id: string): Pro
     return await result.json();
 }
 
+export async function fetchTracks(token: string | null, id: string): Promise<any> {
+    const result = await fetch(`https://api.spotify.com/v1/tracks/${id}`, {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await result.json();
+}
+
 var accessToken:string
 if (sessionStorage.getItem("accesstoken") == null) {
     accessToken = await getAccessToken(clientId);
