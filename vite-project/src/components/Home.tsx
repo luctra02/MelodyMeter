@@ -1,13 +1,8 @@
 import musicLogo from "../assets/logo.svg"
-import GreyBox from "./GreyBox"
 import '../styles/index.css'
-import SongDisplay from './SongDisplay'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { fetchSongInfo } from '../script.js'
 import { useNavigate } from 'react-router-dom';
-import App from '../App'
-
-
 
 function Home() {
     const navigate = useNavigate();
@@ -37,23 +32,19 @@ function Home() {
     }
 
     return (
-
         <div>
-            
             <div id = "search">
                 <div className="Logo">
                     <img src={musicLogo} alt="logo"/>
                 </div>
                 <div className="Search">
-                    <input type="text" placeholder="Search" 
+                    <input type="text" placeholder="Search Artist Name" 
                             value={searchTerm}
                             onChange={handleInputChange}
                             onKeyPress={handleKeyPress}/>
                 </div>
             </div>
-
         </div>
-
     )
 }
 
