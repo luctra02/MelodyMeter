@@ -27,10 +27,10 @@ function AlbumPlaylistDisplay() {
       }, [artistInfo]);
 
     function HandleClickAlbum(item: any){
-        navigate('/TracksDisplay', {state: {albumId: item.id}});
+        navigate('/TracksDisplay', {state: {albumId: item.id , albumImage: item.images[0].url}});
     }
     function HandleClickPlaylist(item: any){
-        navigate('/TracksDisplay', {state: {playlistId: item.id}});
+        navigate('/TracksDisplay', {state: {playlistId: item.id, playlistImage: item.images[0].url}});
     }
 
     return(
@@ -38,8 +38,8 @@ function AlbumPlaylistDisplay() {
             <h1>Albums</h1>
             <div className="Song-List">
                 {albumArray.map((item: any) => (
-                    <button onClick={() => HandleClickAlbum(item)}>
-                        <div className="Song" key={item.name}>
+                    <button key={item.id} onClick={() => HandleClickAlbum(item)}>
+                        <div className="Song">
                             <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img>
                             <h3>{item.name}</h3>
                         </div>
@@ -48,8 +48,8 @@ function AlbumPlaylistDisplay() {
             <h1>Playlists</h1>
             <div className="Song-List">
                 {playlistArray.map((item: any,) => (
-                    <button onClick={() => HandleClickPlaylist(item)}>
-                        <div className="Song" key={item.name}>
+                    <button key={item.id} onClick={() => HandleClickPlaylist(item)}>
+                        <div className="Song" >
                             <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img>
                             <h3>{item.name}</h3>
                         </div>
