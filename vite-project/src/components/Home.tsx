@@ -7,17 +7,15 @@ import { fetchSongInfo } from '../script.js'
 import { useNavigate } from 'react-router-dom';
 import App from '../App'
 
-interface HomeProps {
-    updateSearchTerm: (searchTerm: string) => void;
-  }
 
-function Home({ updateSearchTerm }: HomeProps) {
+
+function Home() {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(e.target.value);
-        updateSearchTerm(e.target.value);
+        
       };
 
     const handleSearch = () => {
@@ -34,7 +32,7 @@ function Home({ updateSearchTerm }: HomeProps) {
     const getSongs = async () => {
         const sessionKey = String(sessionStorage.getItem("accesstoken"))
         const songInfo = await fetchSongInfo(sessionKey, searchTerm);
-        navigate('/searchDisplay', {state: {songInfo: songInfo}});
+        navigate('/searchDisplay', {state: {songInfo: songInfo, searchTerm: searchTerm}});
 
     }
 

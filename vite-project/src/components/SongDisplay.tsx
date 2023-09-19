@@ -1,8 +1,8 @@
 import '../styles/songDisplay.css'
 import React, { useEffect, useState } from 'react';
 import fetchSongInfo from '../script';
-import Statview from './StatView'
 import GreyBox from "./GreyBox"
+import StatView from './StatView';
 
 
 function SongDisplay() {
@@ -32,7 +32,7 @@ function SongDisplay() {
 
     return (
         <div>
-            <Statview />
+            <StatView />
 
             <div className="grey-box">
                 <div className="Song">

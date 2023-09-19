@@ -6,7 +6,8 @@ function Navbar () {
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-                <a href="/"><img src={musicLogo} alt="logo"/></a>
+                <img src={musicLogo} alt="logo"/>
+                <p>MelodyMeter</p>
             </div>
 
             <ul className="navbar-list">
