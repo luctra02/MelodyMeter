@@ -28,5 +28,11 @@ button{
   border: none;
   cursor: pointer;
   background: none;
-  border-radius: 2vw;
 }
+
+
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+
+} 
+

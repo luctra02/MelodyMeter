@@ -59,18 +59,22 @@ function TracksDisplay(){
         </div>
         <div className="Song-List">
             {playlistTracksArray.map((item: any,) => (
-                <button key={item.track.id} onClick={() => HandleClick(item)}>
-                    <div className="Song" >
+                <button className="displayIndiviualSongsButton"key={item.track.id} onClick={() => HandleClick(item)}>
+                    <div className="Song displayIndiviualSongs">
                         {/* <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img> */}
                         <h3>
-                            {item.track.name} - 
-                            {item.track.artists.map((artist: any, index: number) => (
+                            {item.track.name}                         
+                        </h3>
+                        <h3 className="songSpecificInfo">
+                        {item.track.artists.map((artist: any, index: number) => (
                                 index === item.track.artists.length - 1
                                 ? artist.name + ' '  // Don't add a comma after the last item
                                 : artist.name + ', ' // Add a comma after all other items
-                            ))}                         
-                                {Math.floor(item.track.duration_ms/1000/60) }:{Math.floor(item.track.duration_ms/1000 % 60) < 10 ? "0" + Math.floor(item.track.duration_ms/1000 % 60):Math.floor(item.track.duration_ms/1000 % 60)}</h3>
-            
+                            ))}
+                        </h3>
+                        <h3 className="songSpecificInfo">
+                        {Math.floor(item.track.duration_ms/1000/60) }:{Math.floor(item.track.duration_ms/1000 % 60) < 10 ? "0" + Math.floor(item.track.duration_ms/1000 % 60):Math.floor(item.track.duration_ms/1000 % 60)}
+                        </h3>      
                     </div>
                 </button>))}
         </div>

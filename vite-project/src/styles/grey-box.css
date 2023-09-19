@@ -9,18 +9,16 @@
 }
 
 .displayArtists {
-    margin: 2vw;
     width: 95vw;
     padding-bottom: 50px;
     position: relative;
-    top: 50px;
-    border-radius: 2vw;
-    bottom: 0;
+    top: 75px;
+    left: 10px;
 }
 
 .Playlist-Image {
     object-fit: cover;
-    border-radius: 2vw;
+    border-radius: 20px;
     width: calc(200px);
 }
 
@@ -36,22 +34,20 @@
     margin: 20px;
     flex-direction: row;
     height: 100px;
+    text-align: left;
+    transition: 0.2s;
 }
 
 .Song-Image {
     width: 100px;
     height: 100px;
     object-fit: cover;
-    border-radius: 2vw;
+    border-radius: 20px;
     transition: 0.3s;
 }
 
-.Song h3 {
-    transition: 0.3s;
-}
-
-button:hover .Song .Song-Image, button:hover .Song h3{
-    transform: scale(1.15);
+button:hover .Song {
+    transform: scale(1.1);
   }
 
 .Song-List {
@@ -72,4 +68,43 @@ button:hover .Song .Song-Image, button:hover .Song h3{
     width: 200px;
     margin: 30px;
     border-radius: 20px;
+}
+
+.genres {
+    background: linear-gradient(135deg, rgba(119,255,0,0.6), rgba(0,77,255,0.6) 90%);
+    font-size: 10px !important;
+    border-radius: 8px;
+    padding: 3px;
+    position: relative;
+    width: auto;
+    font-weight:500;
+}
+
+.genreInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.star {
+    color: yellow;
+}
+
+.displayIndiviualSongs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: auto;
+}
+
+.songSpecificInfo {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.displayIndiviualSongsButton {
+    width: 200px !important;
 }
