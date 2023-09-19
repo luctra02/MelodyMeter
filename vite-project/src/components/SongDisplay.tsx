@@ -12,6 +12,8 @@ function SongDisplay() {
    
     const location = useLocation();
     const songId = location.state.albumId ? location.state.albumId : location.state.playlistId;
+    const song = location.state.songName;
+    const songImg = location.state.songImage;
 
     
     useEffect(() => {
@@ -20,9 +22,15 @@ function SongDisplay() {
             const sessionKey = sessionStorage.getItem("accesstoken")
             const songInfo = await fetchTracks(sessionKey, songId);
             // Update the document title using the browser API;
-            setSongName(songInfo.name);
-            setSongImage(songInfo.album.images[0].url);
-            console.log(songInfo);
+            if(songId) {
+                setSongName(songInfo.name);
+                setSongImage(songInfo.album.images[0].url);
+                console.log(songInfo);
+            }else {
+                setSongName(song)
+                setSongImage(songImg)
+                console.log(song)
+            }
         }
         getStats();
     }, []);

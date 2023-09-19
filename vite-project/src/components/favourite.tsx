@@ -1,5 +1,5 @@
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/favourite.css'
 import '../styles/index.css'
 import '../styles/songDisplay.css'
@@ -57,11 +57,10 @@ function favourite() {
     const favourites: Song[] = favouritesJSON ? JSON.parse(favouritesJSON) : [];
     console.log(favourites)
     //localStorage.setItem("favourites", "[]");
+    
     function HandleClick(item: any){
-        navigate('/TracksDisplay', {state: {albumId: item.id , albumImage: item.images[0].url}});
-    }
-    function HandleClick(item: any){
-        navigate('/TracksDisplay', {state: {playlistId: item.id, playlistImage: item.images[0].url}});
+        console.log(item.artist)
+        navigate('/SongDisplay', {state: {songName: item.songName, songImage: item.imageURL, artistName: item.artist}});
     }
 
     return (

@@ -18,7 +18,7 @@ export async function getAccessToken(clientId: string): Promise<string> {
     return access_token;
 }
 
-export async function fetchSongInfo(token: string, searchTerm: string): Promise<any> {
+export async function fetchSongInfo(token: string | null, searchTerm: string): Promise<any> {
     console.log(searchTerm)
     const result = await fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
         method: "GET", headers: { Authorization: `Bearer ${token}` }
