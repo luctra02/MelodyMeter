@@ -39,8 +39,8 @@ function DisplaySearch(){
     <div className="grey-box">
         <div className="Song-List">
             {artistArray.map((item: any, index: number) => (
-              <button onClick={() => HandleClick(item)}>
-                <div className="Song" key={index}>
+              <button key={index} onClick={() => HandleClick(item)}>
+                <div className="Song">
                     <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img>
                     
                     <h3>{item.name}</h3>

@@ -60,6 +60,22 @@ export async function fetchPlaylists(token: string | null, name: string): Promis
     return await result.json();
 }
 
+export async function fetchAlbumTracks(token: string | null, id: string): Promise<any> {
+    const result = await fetch(`https://api.spotify.com/v1/albums/${id}`, {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await result.json();
+}
+
+export async function fetchPlaylistTracks(token: string | null, id: string): Promise<any> {
+    const result = await fetch(`https://api.spotify.com/v1/playlists/${id}`, {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await result.json();
+}
+
 var accessToken:string
 if (sessionStorage.getItem("accesstoken") == null) {
     accessToken = await getAccessToken(clientId);
