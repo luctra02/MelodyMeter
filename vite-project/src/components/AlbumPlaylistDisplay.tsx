@@ -19,7 +19,6 @@ function AlbumPlaylistDisplay() {
             setAlbumArray(newAlbumArray); // Update albumArray using state
 
             const playlistResult = await fetchPlaylists(sessionKey, artistInfo.name);
-            console.log(playlistResult)
             const newPlaylistArray = Object.values(playlistResult.playlists.items);
             setPlaylistArray(newPlaylistArray); // Update playlistArray using state
         };
