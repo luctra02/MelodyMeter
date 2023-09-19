@@ -15,12 +15,17 @@
 }
 
 .singleSongDisplay {
-    margin-top: ;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    height: 100%;
 }
 
 .singleSongDisplay img {
     width: 200px;
     height: 200px;
+    align-self: center;
 }
 
 .Song-Image {
