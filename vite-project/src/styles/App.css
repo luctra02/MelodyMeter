@@ -1,9 +1,8 @@
 #root {
-  width: 100vw;
-  height: 100vh;
   text-align: center;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: white;
+  min-height: 100vh;
 }
 
 *{
@@ -21,8 +20,20 @@
 body { 
   margin: 0;
   padding: 0;
-  background:linear-gradient(135deg, #47286c 25%, #3d42a4 100%);
+  background: repeating-linear-gradient(135deg, #47286c 0%, #3d42a4 40%, #47286c 80%);
+  transition: 0.5s;
 }
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
 
 button{
   border: none;

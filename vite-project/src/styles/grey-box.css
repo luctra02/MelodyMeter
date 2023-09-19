@@ -1,5 +1,5 @@
 .grey-box {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: none;
     margin: 10px;
     width: calc(80vw - 20px);
     height: calc(90vh - 20px);
@@ -9,10 +9,9 @@
 }
 
 .displayArtists {
-    width: 95vw;
-    padding-bottom: 50px;
+    width: calc(100vw - 20px);
     position: relative;
-    top: 75px;
+    margin-top: 75px;
     left: 10px;
 }
 
@@ -98,6 +97,7 @@ button:hover .Song {
     flex-direction: column;
     gap: 5px;
     height: auto;
+    max-width: 300px;
 }
 
 .songSpecificInfo {
@@ -106,5 +106,5 @@ button:hover .Song {
 }
 
 .displayIndiviualSongsButton {
-    width: 200px !important;
+    width: 250px !important;
 }

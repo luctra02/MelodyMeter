@@ -32,7 +32,7 @@ function SongDisplay() {
             <StatView />
 
             <div className="grey-box">
-                <div className="Song">
+                <div className="singleSongDisplay">
                     <img src={songImage} className='Song-Image'></img>
                     <h1 className='songArtist'>{songName}</h1>
                 </div>

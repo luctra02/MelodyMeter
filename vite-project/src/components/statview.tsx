@@ -33,6 +33,7 @@ function StatView() {
   return (
     <div className="statview">
       <ul>
+        <li><p>Stats</p></li>
         <li><p>Danceability</p><p>{danceStat}%</p></li>
         <li><p>Energy</p><p>{energyStat}%</p></li>
         <li><p>Loudness</p><p>{loudStat}dB</p></li>
