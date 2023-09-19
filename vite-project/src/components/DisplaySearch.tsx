@@ -13,8 +13,7 @@ function DisplaySearch(){
     const songInfo = location.state.songInfo;
     const songInfoArray = Object.values(songInfo.tracks.items);
     const searchTerm = location.state.searchTerm;
-    console.log(songInfoArray);
-    console.log(typeof songInfo);
+
   
     // Use the useState hook to manage artistArray
     const [artistArray, setArtistArray] = useState<any[]>([]);
@@ -24,7 +23,7 @@ function DisplaySearch(){
         const sessionKey = sessionStorage.getItem("accesstoken");
         const artistResult = await fetchArtist(sessionKey, searchTerm);
         const newArtistArray = Object.values(artistResult.artists.items);
-        console.log(newArtistArray);
+
         setArtistArray(newArtistArray.slice(0,6)); // Update artistArray using state
       };
       getStats();

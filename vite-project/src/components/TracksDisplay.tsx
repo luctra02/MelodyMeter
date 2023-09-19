@@ -29,14 +29,13 @@ function TracksDisplay(){
                 const playlistTracksResult = await fetchPlaylistTracks(sessionKey, playlistId);
                 const newPlaylistTracksArray = Object.values(playlistTracksResult.tracks.items);
                 setPlaylistTracksArray(newPlaylistTracksArray); // Update albumArray using state
-            }
+            }          
         };
         getStats();
       }, [albumId, playlistId]);
       
     function changeFavourite(filledId: string, songName: string, artist: string) {
         const exists = checkSongInFavourites(songName, artist)
-        
         if (exists) {
             removeSongFromFavourites(songName, artist)
             const filledElement = document.getElementById(filledId);
@@ -47,7 +46,7 @@ function TracksDisplay(){
             }
 
         } else {
-            addSongToFavourites(songName, artist)
+            addSongToFavourites(songName, artist, imageURL)
             const filledElement = document.getElementById(filledId);
             if (filledElement) {
                 filledElement.style.display = "block";
@@ -80,10 +79,10 @@ function TracksDisplay(){
 
     useEffect(() => {
         albumTracksArray.forEach(item => {
-            showFavourite(`${item.id}filled`, item.name, item.artist);
+            showFavourite(`${item.id}filled`, item.name, item.artists[0].name);
         });
         playlistTracksArray.forEach(item => {
-            showFavourite(`${item.track.id}filled`, item.track.name, item.track.artist);
+            showFavourite(`${item.track.id}filled`, item.track.name, item.track.artists[0].name);
         });
       }, [albumTracksArray, playlistTracksArray]); 
 
@@ -93,6 +92,7 @@ function TracksDisplay(){
         <h1>Tracks</h1>
         <div className="Song-List">
             {albumTracksArray.map((item: any) => (
+                
                 <button key={item.id} onClick={() => HandleClick(item)}>
                     <div className="Song">
                         <h3>{item.name} - 
@@ -105,13 +105,13 @@ function TracksDisplay(){
                         <div style={{ position: 'relative' }}>                                                                      
                             <span onClick={(e) => { 
                                 e.stopPropagation(); 
-                                changeFavourite(`${item.id}filled`, item.name, item.artist);
+                                changeFavourite(`${item.id}filled`, item.name, item.artists[0].name);
                                 }}>
                                 <AiOutlineStar className="text-yellow-400" />
                             </span>
                             <span onClick={(e) => { 
                                 e.stopPropagation(); 
-                                changeFavourite(`${item.id}filled`, item.name, item.artist);
+                                changeFavourite(`${item.id}filled`, item.name, item.artists[0].name);
                                 }}>
                                 <AiFillStar className="star" id={`${item.id}filled`}  style={{position: 'absolute', top: 0, left: 0 }} />
                             </span>
@@ -134,13 +134,13 @@ function TracksDisplay(){
                         <div style={{ position: 'relative' }}>                                                                      
                             <span onClick={(e) => { 
                                 e.stopPropagation(); 
-                                changeFavourite(`${item.track.id}filled`, item.track.name, item.track.artist);
+                                changeFavourite(`${item.track.id}filled`, item.track.name, item.track.artists[0].name);
                                 }}>
                                 <AiOutlineStar  className="text-yellow-400" />
                             </span>
                             <span onClick={(e) => { 
                                 e.stopPropagation(); 
-                                changeFavourite(`${item.id}filled`, item.name, item.artist);
+                                changeFavourite(`${item.track.id}filled`, item.track.name, item.track.artists[0].name);
                                 }}>
                                 <AiFillStar className="star" id={`${item.track.id}filled`}  style={{position: 'absolute', top: 0, left: 0 }} />
                             </span>
