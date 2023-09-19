@@ -1,31 +1,28 @@
 import '../styles/songDisplay.css'
 import React, { useEffect, useState } from 'react';
-import fetchSongInfo from '../script';
-import GreyBox from "./GreyBox"
-import StatView from './StatView';
+import { fetchTracks } from '../script';
+import StatView from './statview';
+import { useLocation } from 'react-router-dom';
 
 
 function SongDisplay() {
 
     const [songName, setSongName] = useState("")
-    const [songArtist, setSongArtist] = useState("")
     const [songImage, setSongImage] = useState("")
-    const [songID, setSongID] = useState("")
-    const [songAlbum, setSongAlbum] = useState("")
+   
+    const location = useLocation();
+    const songId = location.state.albumId ? location.state.albumId : location.state.playlistId;
 
+    
     useEffect(() => {
-        
+        console.log(songId)
         const getStats = async () => {
             const sessionKey = sessionStorage.getItem("accesstoken")
-            const songInfo = await fetchSongInfo(sessionKey, "4cOdK2wGLETKBW3PvgPWqT");
+            const songInfo = await fetchTracks(sessionKey, songId);
             // Update the document title using the browser API;
             setSongName(songInfo.name);
-            setSongArtist(songInfo.artists);
             setSongImage(songInfo.album.images[0].url);
-            setSongID(songInfo.id);
-            setSongAlbum(songInfo.album);
             console.log(songInfo);
-
         }
         getStats();
     }, []);
@@ -37,7 +34,7 @@ function SongDisplay() {
             <div className="grey-box">
                 <div className="Song">
                     <img src={songImage} className='Song-Image'></img>
-                    <h1 className='songArtist'>Billie Eilish - Happier Than Ever</h1>
+                    <h1 className='songArtist'>{songName}</h1>
                 </div>
             </div>
         </div>
