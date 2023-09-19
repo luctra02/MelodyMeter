@@ -43,6 +43,23 @@ export async function fetchArtist(token: string | null, name: string): Promise<a
     return await result.json();
 }
 
+export async function fetchAlbum(token: string | null, name: string): Promise<any> {
+    const result = await fetch(`https://api.spotify.com/v1/search?q=artist:${name}&type=album`, {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await result.json();
+}
+
+export async function fetchPlaylists(token: string | null, name: string): Promise<any> {
+    console.log(name)
+    const result = await fetch(`https://api.spotify.com/v1/search?q=${name}&type=playlist`, {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+
+    return await result.json();
+}
+
 var accessToken:string
 if (sessionStorage.getItem("accesstoken") == null) {
     accessToken = await getAccessToken(clientId);
