@@ -25,7 +25,7 @@ function DisplaySearch(){
         const artistResult = await fetchArtist(sessionKey, searchTerm);
         const newArtistArray = Object.values(artistResult.artists.items);
         console.log(newArtistArray);
-        setArtistArray(newArtistArray.slice(0,6)); // Update artistArray using state
+        setArtistArray(newArtistArray.slice(0,20)); // Update artistArray using state
       };
       getStats();
     }, [searchTerm]);

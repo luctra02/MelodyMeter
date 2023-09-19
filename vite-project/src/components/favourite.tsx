@@ -2,10 +2,11 @@
 import '../styles/favourite.css'
 import '../styles/index.css'
 import '../styles/songDisplay.css'
+import '../styles/grey-box.css'
 
 function favourite() {
     return (
-        <div className='fullpageBox'>
+        <div className='displayArtists'>
             <h1 id = "favouriteTitle">My Favourite Songs</h1> 
             <div id = "favouriteList">
                 <div className="favouriteSong">

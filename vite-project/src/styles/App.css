@@ -30,7 +30,3 @@ button{
   background: none;
   border-radius: 2vw;
 }
-
-button:hover {
-  background-color: rgba(0, 0, 0, 0.55);
-}

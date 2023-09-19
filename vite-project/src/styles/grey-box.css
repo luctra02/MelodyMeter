@@ -11,12 +11,11 @@
 .displayArtists {
     margin: 2vw;
     width: 95vw;
-
+    padding-bottom: 50px;
     position: relative;
     top: 50px;
     border-radius: 2vw;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .Playlist-Image {
@@ -37,7 +36,6 @@
     margin: 20px;
     flex-direction: row;
     height: 100px;
-    width: 100%;
 }
 
 .Song-Image {
@@ -45,11 +43,28 @@
     height: 100px;
     object-fit: cover;
     border-radius: 2vw;
+    transition: 0.3s;
 }
+
+.Song h3 {
+    transition: 0.3s;
+}
+
+button:hover .Song .Song-Image, button:hover .Song h3{
+    transform: scale(1.15);
+  }
 
 .Song-List {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+}
+
+.Song-List button {
+    width: 300px;
+    flex-grow: 1;
 }
 
 .displayArtistImage {
