@@ -3,7 +3,44 @@ import '../styles/favourite.css'
 import '../styles/index.css'
 import '../styles/songDisplay.css'
 
+interface Song {
+    songName: string;
+    artist: string;
+  }
+
+function addSongToFavourites(songName: string, artist: string) {
+    const favouritesJSON = localStorage.getItem("favourites");
+    const favourites: Song[] = favouritesJSON ? JSON.parse(favouritesJSON) : [];
+    const newSong: Song = { songName: songName, artist: artist };
+    favourites.push(newSong);
+    const updatedFavourites = JSON.stringify(favourites);
+    localStorage.setItem("favourites", updatedFavourites);
+}
+
+function removeSongFromFavourites(songName: string, artist: string) {
+    const favouritesJSON = localStorage.getItem("favourites");
+    const favourites: Song[] = favouritesJSON ? JSON.parse(favouritesJSON) : [];
+    const index = favourites.findIndex(song => song.songName == songName && song.artist == artist);
+    if (index != -1) {
+      favourites.splice(index, 1);
+      const updatedFavourites = JSON.stringify(favourites);
+      localStorage.setItem("favourites", updatedFavourites);
+    }
+  }
+
+function checkSongInFavourites(songName: string, artist: string) {
+    const favouritesJSON = localStorage.getItem("favourites");
+    const favourites: Song[] = favouritesJSON ? JSON.parse(favouritesJSON) : [];
+    const index = favourites.findIndex(song => song.songName == songName && song.artist == artist);
+    if (index != -1) {
+      return true
+    } else {
+        return false
+    }
+  }
+
 function favourite() {
+    
     return (
         <div className='fullpageBox'>
             <h1 id = "favouriteTitle">My Favourite Songs</h1> 
@@ -22,4 +59,5 @@ function favourite() {
     )
 }
 
-export default favourite
+export {checkSongInFavourites, addSongToFavourites, removeSongFromFavourites};
+export default favourite;
