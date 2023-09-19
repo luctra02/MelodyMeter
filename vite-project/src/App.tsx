@@ -2,6 +2,7 @@ import './styles/App.css'
 import Home from './components/Home'
 import Navbar from './components/navbar'
 import Favourite from './components/favourite'
+import AlbumPlaylistDisplay from './components/AlbumPlaylistDisplay'
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import SongDisplay from './components/SongDisplay';
 import GreyBox from './components/GreyBox';
@@ -13,11 +14,9 @@ import { useState } from "react"
 
 function App() {
 
-  const [searchTerm, setSearchTerm] = useState('');
 
-  function updateSearchTerm(searchTerm:string){
-    setSearchTerm(searchTerm);
-  }
+
+
   
   return (
     <Router >
@@ -26,10 +25,11 @@ function App() {
 
       </div>
       <Routes>
-        <Route path='/' element={<Home updateSearchTerm ={updateSearchTerm}/>}/>
+        <Route path='/' element={<Home />}/>
         <Route path='/favourite' element={<Favourite />}/>
         <Route path='/songDisplay' element={<SongDisplay />}/>
-        <Route path='/searchDisplay' element={<DisplaySearch searchTerm={searchTerm} />}/>
+        <Route path='/searchDisplay' element={<DisplaySearch  />}/>
+        <Route path='/AlbumPlaylistDisplay' element={<AlbumPlaylistDisplay />}/>
       </Routes>
     </Router>
 

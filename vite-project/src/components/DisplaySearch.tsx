@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react';
 import { fetchArtist } from '../script';
 import '../styles/grey-box.css'
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
-function DisplaySearch({ searchTerm }: { searchTerm: string }) {
-    console.log(searchTerm);
+
+function DisplaySearch(){
+
+    const navigate = useNavigate();
     const location = useLocation();
     const songInfo = location.state.songInfo;
     const songInfoArray = Object.values(songInfo.tracks.items);
+    const searchTerm = location.state.searchTerm;
     console.log(songInfoArray);
     console.log(typeof songInfo);
   
@@ -25,16 +29,23 @@ function DisplaySearch({ searchTerm }: { searchTerm: string }) {
       };
       getStats();
     }, [searchTerm]);
+
+    function HandleClick(item: any){
+      //console.log(item.images[0].url, item.name, item.id)
+      navigate('/AlbumPlaylistDisplay', {state: {artistInfo: item}});
+    }
     
   return (
     <div className="grey-box">
         <div className="Song-List">
             {artistArray.map((item: any, index: number) => (
+              <button onClick={() => HandleClick(item)}>
                 <div className="Song" key={index}>
                     <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img>
                     
                     <h3>{item.name}</h3>
-                </div>))
+                </div>
+                </button>))          
             
             }
         </div>
@@ -43,4 +54,4 @@ function DisplaySearch({ searchTerm }: { searchTerm: string }) {
 
 }
 
-export default DisplaySearch;
+export default DisplaySearch
