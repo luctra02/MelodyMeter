@@ -6,7 +6,6 @@ import '../styles/songDisplay.css'
 import '../styles/grey-box.css'
 
 
-
 interface Song {
     songName: string;
     artist: string;
@@ -53,24 +52,32 @@ function checkSongInFavourites(songName: string, artist: string) {
 
 
 function favourite() {    
-    
+    const navigate = useNavigate();
     const favouritesJSON = localStorage.getItem("favourites");
     const favourites: Song[] = favouritesJSON ? JSON.parse(favouritesJSON) : [];
     console.log(favourites)
     //localStorage.setItem("favourites", "[]");
+    function HandleClick(item: any){
+        navigate('/TracksDisplay', {state: {albumId: item.id , albumImage: item.images[0].url}});
+    }
+    function HandleClick(item: any){
+        navigate('/TracksDisplay', {state: {playlistId: item.id, playlistImage: item.images[0].url}});
+    }
 
     return (
-        <div className='fullpageBox'>
+        <div className="displayArtists">
             <h1 id = "favouriteTitle">My Favourite Songs</h1>
+            <div className="Song-List">
             {favourites.map((item: any) => (
-                <div id = "favouriteList" key={item.name+item.artist}>
-                    <div className="favouriteSong">
+                <button onClick={() => HandleClick(item)}>
+                    <div className="Song">
                         <img src={item.imageURL} className='Song-Image'></img>
-                        <h4 className='songArtist'>{item.songName}- {item.artist}</h4>
+                        <h3 className='songArtist'>{item.songName}- {item.artist}</h3>
                     </div>
-                </div>
+                </button>
             ))}
             </div>
+        </div>
     
     )
 }
