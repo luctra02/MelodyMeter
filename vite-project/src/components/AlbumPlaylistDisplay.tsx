@@ -34,7 +34,7 @@ function AlbumPlaylistDisplay() {
     }
 
     return(
-        <div className="grey-box">
+        <div className="displayArtists">
             <h1>Albums</h1>
             <div className="Song-List">
                 {albumArray.map((item: any) => (

@@ -36,7 +36,7 @@ function DisplaySearch(){
     }
     
   return (
-    <div className="grey-box">
+    <div className="displayArtists">
         <div className="Song-List">
             {artistArray.map((item: any, index: number) => (
               <button key={index} onClick={() => HandleClick(item)}>

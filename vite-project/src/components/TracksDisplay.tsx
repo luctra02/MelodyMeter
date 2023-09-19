@@ -39,8 +39,8 @@ function TracksDisplay(){
       console.log(playlistTracksArray)
  
     return(
-        <div className="grey-box">
-        <img src={imageURL} alt="" />
+        <div className="displayArtists">
+        <img src={imageURL} className="displayArtistImage" alt="" />
         <h1>Tracks</h1>
         <div className="Song-List">
             {albumTracksArray.map((item: any) => (
