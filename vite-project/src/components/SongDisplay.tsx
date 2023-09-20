@@ -1,5 +1,5 @@
 import '../styles/songDisplay.css'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { fetchTracks } from '../script';
 import StatView from './statview';
 import { useLocation } from 'react-router-dom';
@@ -16,24 +16,23 @@ function SongDisplay() {
     const songImg = location.state.songImage;
 
     
-    useEffect(() => {
-        console.log(songId)
-        const getStats = async () => {
-            const sessionKey = sessionStorage.getItem("accesstoken")
-            const songInfo = await fetchTracks(sessionKey, songId);
-            // Update the document title using the browser API;
-            if(songId) {
-                setSongName(songInfo.name);
-                setSongImage(songInfo.album.images[0].url);
-                console.log(songInfo);
-            }else {
-                setSongName(song)
-                setSongImage(songImg)
-                console.log(song)
-            }
+
+    const getStats = async () => {
+        const sessionKey = sessionStorage.getItem("accesstoken")
+        const songInfo = await fetchTracks(sessionKey, songId);
+        // Update the document title using the browser API;
+        if(songId) {
+            setSongName(songInfo.name);
+            setSongImage(songInfo.album.images[0].url);
+            console.log(songInfo);
+        }else {
+            setSongName(song)
+            setSongImage(songImg)
+            console.log(song)
         }
-        getStats();
-    }, []);
+    }
+    
+    getStats();
 
     return (
         <div>

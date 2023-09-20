@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../styles/statview.css';
 import fetchAudioFeatures, { fetchSongInfo } from '../script';
 import { useLocation } from 'react-router-dom';
@@ -19,7 +19,6 @@ function StatView() {
   const songId = location.state.albumId ? location.state.albumId : location.state.playlistId;
   const song = location.state.songName;
 
-  useEffect(() => {
     const getStats = async () => {
       const sessionKey = sessionStorage.getItem("accesstoken")
       if(!songId){
@@ -41,8 +40,6 @@ function StatView() {
     };
 
     getStats();
-
-  }, []);
 
 
 
