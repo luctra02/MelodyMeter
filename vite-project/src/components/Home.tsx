@@ -1,7 +1,7 @@
 import musicLogo from '../assets/logo.svg';
 import '../styles/index.css';
 import { useState } from 'react';
-import { fetchSongInfo } from '../utils/script.js';
+import { fetchSongInfo } from '../script';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {

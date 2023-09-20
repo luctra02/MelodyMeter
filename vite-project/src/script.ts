@@ -115,7 +115,6 @@ export async function fetchAlbum(token: string | null, name: string): Promise<Sp
 }
 
 export async function fetchPlaylists(token: string | null, name: string): Promise<SpotifyPlaylistsResponse> {
-  console.log(name);
   const result = await fetch(`https://api.spotify.com/v1/search?q=${name}&type=playlist`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },

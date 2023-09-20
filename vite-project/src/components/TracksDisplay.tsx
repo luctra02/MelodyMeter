@@ -2,8 +2,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/grey-box.css';
 import { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { fetchAlbumTracks, fetchPlaylistTracks } from '../utils/script';
+import { fetchAlbumTracks, fetchPlaylistTracks } from '../script';
 import { addSongToFavourites, checkSongInFavourites, removeSongFromFavourites } from '../utils/favouriteFunctions';
+
 
 interface Track {
   track: { id: string; name: string; artists: { name: string }[]; duration_ms: number };

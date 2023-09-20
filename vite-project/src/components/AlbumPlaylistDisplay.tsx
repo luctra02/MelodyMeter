@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import '../styles/grey-box.css';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { fetchAlbum, fetchPlaylists } from '../utils/script';
+import { fetchAlbum, fetchPlaylists } from '../script';
 
 interface Album {
   id: string;

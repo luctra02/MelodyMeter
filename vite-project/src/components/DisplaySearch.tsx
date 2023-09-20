@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { fetchArtist } from '../utils/script';
+import { fetchArtist } from '../script';
 import '../styles/grey-box.css';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+
 
 interface SpotifyArtist {
   id: string;
@@ -14,10 +15,8 @@ interface SpotifyArtist {
 function DisplaySearch() {
   const navigate = useNavigate();
   const location = useLocation();
-  const songInfo = location.state.songInfo;
-  const songInfoArray = Object.values(songInfo.tracks.items);
   const searchTerm = location.state.searchTerm;
-  console.log(songInfoArray);
+
 
   const [artistArray, setArtistArray] = useState<SpotifyArtist[]>([]);
 
@@ -26,14 +25,13 @@ function DisplaySearch() {
       const sessionKey = sessionStorage.getItem('accesstoken');
       const artistResult = await fetchArtist(sessionKey, searchTerm);
       const newArtistArray = Object.values(artistResult.artists.items) as SpotifyArtist[];
-      console.log(newArtistArray);
+
       setArtistArray(newArtistArray.slice(0, 20)); // Update artistArray using state
     };
     getStats();
   }, [searchTerm]);
 
   function HandleClick(item: SpotifyArtist) {
-    //console.log(item.images[0].url, item.name, item.id)
     navigate('/project1/AlbumPlaylistDisplay', { state: { artistInfo: item } });
   }
 

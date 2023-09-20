@@ -1,8 +1,9 @@
 import '../styles/songDisplay.css';
 import { useEffect, useState } from 'react';
-import { fetchTracks } from '../utils/script';
+import { fetchTracks } from '../script';
 import StatView from './statview';
 import { useLocation } from 'react-router-dom';
+
 
 function SongDisplay() {
   const [songName, setSongName] = useState('');
@@ -22,7 +23,6 @@ function SongDisplay() {
         const trackInfo = await fetchTracks(sessionKey, songId);
         setSongName(trackInfo.name);
         setSongImage(trackInfo.album.images[0].url);
-        console.log(trackInfo);
       } else {
         setSongName(song);
         setSongImage(songImg);
