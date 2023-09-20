@@ -13,7 +13,7 @@ function DisplaySearch(){
     const songInfo = location.state.songInfo;
     const songInfoArray = Object.values(songInfo.tracks.items);
     const searchTerm = location.state.searchTerm;
-
+    console.log(songInfoArray);
   
     // Use the useState hook to manage artistArray
     const [artistArray, setArtistArray] = useState<any[]>([]);

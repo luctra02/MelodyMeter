@@ -1,5 +1,5 @@
 import '../styles/songDisplay.css'
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchTracks } from '../script';
 import StatView from './statview';
 import { useLocation } from 'react-router-dom';
