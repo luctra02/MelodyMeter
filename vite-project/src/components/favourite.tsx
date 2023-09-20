@@ -58,7 +58,7 @@ function favourite() {
     console.log(favourites)
     //localStorage.setItem("favourites", "[]");
     function HandleClick(item: any){
-        navigate('/TracksDisplay', {state: {albumId: item.id , albumImage: item.images[0].url}});
+        navigate('/SongDisplay', {state: {songName: item.songName, songImage: item.imageURL, artistName: item.artist}});
     }
     // function HandleClick(item: any){
     //     navigate('/TracksDisplay', {state: {playlistId: item.id, playlistImage: item.images[0].url}});
