@@ -84,14 +84,17 @@ export async function fetchTracks(token: string | null, id: string): Promise<any
     return await result.json();
 }
 
-var accessToken:string
-if (sessionStorage.getItem("accesstoken") == null) {
-    accessToken = await getAccessToken(clientId);
-    sessionStorage.setItem("accesstoken", accessToken)
-} else {
-    accessToken = String(sessionStorage.getItem("accesstoken"))
-}
+async function main() {
+    let accessToken;
+    if (sessionStorage.getItem("accesstoken") == null) {
+      accessToken = await getAccessToken(clientId);
+      sessionStorage.setItem("accesstoken", accessToken);
+    } else {
+      // Handle the case when the token is already in sessionStorage
+    }
+  }
 
+main();
 /* const songInfo = await fetchSongInfo(accessToken)
 console.log(songInfo.tracks.items[0].id)
 
