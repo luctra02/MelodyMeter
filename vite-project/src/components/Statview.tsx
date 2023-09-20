@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/statview.css';
 import fetchAudioFeatures, { fetchSongInfo } from '../script';
 import { useLocation } from 'react-router-dom';
-
 
 function StatView() {
   interface SearchResponse {
@@ -19,27 +18,29 @@ function StatView() {
   const songId = location.state.albumId ? location.state.albumId : location.state.playlistId;
   const song = location.state.songName;
 
-  const getStats = async () => {
-    const sessionKey = sessionStorage.getItem('accesstoken');
-    if (!songId) {
-      const searchName: SearchResponse = await fetchSongInfo(sessionKey, song);
-      const songInfoArray = Object.values(searchName.tracks.items);
-      const songId = songInfoArray[0].id;
-      const AudioFeatures = await fetchAudioFeatures(sessionKey, songId);
-      setDanceStat(Math.floor(AudioFeatures.danceability * 100));
-      setEnergyStat(Math.floor(AudioFeatures.energy * 100));
-      setLoudStat(Math.round(AudioFeatures.loudness));
-      setPositiveStat(Math.floor(AudioFeatures.valence * 100));
-    } else {
-      const AudioFeatures = await fetchAudioFeatures(sessionKey, songId);
-      setDanceStat(Math.floor(AudioFeatures.danceability * 100));
-      setEnergyStat(Math.floor(AudioFeatures.energy * 100));
-      setLoudStat(Math.round(AudioFeatures.loudness));
-      setPositiveStat(Math.floor(AudioFeatures.valence * 100));
+  useEffect(() => {
+    const getStats = async () => {
+      const sessionKey = sessionStorage.getItem('accesstoken');
+      if (!songId) {
+        const searchName: SearchResponse = await fetchSongInfo(sessionKey, song);
+        const songInfoArray = Object.values(searchName.tracks.items);
+        const songId = songInfoArray[0].id;
+        const AudioFeatures = await fetchAudioFeatures(sessionKey, songId);
+        setDanceStat(Math.floor(AudioFeatures.danceability * 100));
+        setEnergyStat(Math.floor(AudioFeatures.energy * 100));
+        setLoudStat(Math.round(AudioFeatures.loudness));
+        setPositiveStat(Math.floor(AudioFeatures.valence * 100));
+      } else {
+        const AudioFeatures = await fetchAudioFeatures(sessionKey, songId);
+        setDanceStat(Math.floor(AudioFeatures.danceability * 100));
+        setEnergyStat(Math.floor(AudioFeatures.energy * 100));
+        setLoudStat(Math.round(AudioFeatures.loudness));
+        setPositiveStat(Math.floor(AudioFeatures.valence * 100));
     }
   };
 
-  getStats();
+    getStats();
+},  [songId, song]);
 
   return (
     <div className="statview">
