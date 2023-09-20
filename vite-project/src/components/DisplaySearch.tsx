@@ -31,7 +31,7 @@ function DisplaySearch(){
 
     function HandleClick(item: any){
       //console.log(item.images[0].url, item.name, item.id)
-      navigate('/AlbumPlaylistDisplay', {state: {artistInfo: item}});
+      navigate('/project1/AlbumPlaylistDisplay', {state: {artistInfo: item}});
     }
     
   return (

@@ -91,6 +91,7 @@ async function main() {
       sessionStorage.setItem("accesstoken", accessToken);
     } else {
       // Handle the case when the token is already in sessionStorage
+      accessToken = String(sessionStorage.getItem("accesstoken"))
     }
   }
 

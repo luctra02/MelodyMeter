@@ -6,13 +6,13 @@ function Navbar () {
     return (
         <nav className="navbar">
             <div className="navbar-logo">
-            <Link to='/'><img src={musicLogo} alt="logo"/></Link>
+            <Link to='/project1/'><img src={musicLogo} alt="logo"/></Link>
                 <p>MelodyMeter</p>
             </div>
 
             <ul className="navbar-list">
-                <Link to='/'><li id="homenavbar" className="navbar-item"><a href="/">Home</a></li></Link>
-                <Link to='/favourite'><li id="favoritenavbar" className="navbar-item"><a href="/favorites">Favorites</a></li></Link>
+                <Link to='/project1/'><li id="homenavbar" className="navbar-item"><a href="/project1/">Home</a></li></Link>
+                <Link to='/project1/favourite'><li id="favoritenavbar" className="navbar-item"><a href="/favorites">Favorites</a></li></Link>
             </ul>
             
         </nav>

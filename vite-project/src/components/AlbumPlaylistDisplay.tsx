@@ -26,10 +26,10 @@ function AlbumPlaylistDisplay() {
       }, [artistInfo]);
 
     function HandleClickAlbum(item: any){
-        navigate('/TracksDisplay', {state: {albumId: item.id , albumImage: item.images[0].url}});
+        navigate('/project1/TracksDisplay', {state: {albumId: item.id , albumImage: item.images[0].url}});
     }
     function HandleClickPlaylist(item: any){
-        navigate('/TracksDisplay', {state: {playlistId: item.id, playlistImage: item.images[0].url}});
+        navigate('/project1/TracksDisplay', {state: {playlistId: item.id, playlistImage: item.images[0].url}});
     }
 
     return(

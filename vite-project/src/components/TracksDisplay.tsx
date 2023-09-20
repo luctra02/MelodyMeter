@@ -15,11 +15,11 @@ function TracksDisplay(){
     const [playlistTracksArray, setPlaylistTracksArray] = useState<any[]>([]);
 
     function HandleClickAlbum(item: any){
-        navigate('/SongDisplay', {state: {albumId: item.id}});
+        navigate('/project1/SongDisplay', {state: {albumId: item.id}});
     }
 
     function HandleClickPlaylist(item: any){
-        navigate('/SongDisplay', {state: {playlistId: item.track.id}});
+        navigate('/project1/SongDisplay', {state: {playlistId: item.track.id}});
     }
 
 

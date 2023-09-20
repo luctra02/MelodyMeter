@@ -27,7 +27,7 @@ function Home() {
     const getSongs = async () => {
         const sessionKey = String(sessionStorage.getItem("accesstoken"))
         const songInfo = await fetchSongInfo(sessionKey, searchTerm);
-        navigate('/searchDisplay', {state: {songInfo: songInfo, searchTerm: searchTerm}});
+        navigate('/project1/searchDisplay', {state: {songInfo: songInfo, searchTerm: searchTerm}});
 
     }
 

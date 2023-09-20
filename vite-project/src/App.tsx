@@ -12,11 +12,6 @@ import DisplaySearch from './components/DisplaySearch';
 
 
 function App() {
-
-
-
-
-  
   return (
     <Router >
       <div className="App">
@@ -24,12 +19,12 @@ function App() {
 
       </div>
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/favourite' element={<Favourite />}/>
-        <Route path='/songDisplay' element={<SongDisplay />}/>
-        <Route path='/searchDisplay' element={<DisplaySearch  />}/>
-        <Route path='/AlbumPlaylistDisplay' element={<AlbumPlaylistDisplay />}/>
-        <Route path='/TracksDisplay' element={<TracksDisplay />}/>
+        <Route path='/project1/' element={<Home />}/>
+        <Route path='/project1/favourite' element={<Favourite />}/>
+        <Route path='/project1/songDisplay' element={<SongDisplay />}/>
+        <Route path='/project1/searchDisplay' element={<DisplaySearch  />}/>
+        <Route path='/project1/AlbumPlaylistDisplay' element={<AlbumPlaylistDisplay />}/>
+        <Route path='/project1/TracksDisplay' element={<TracksDisplay />}/>
       </Routes>
     </Router>
 
