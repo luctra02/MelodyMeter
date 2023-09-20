@@ -1,35 +1,35 @@
 .grey-box {
-    border-radius: 2vw;
-    margin: 10px;
-    width: calc(80vw - 20px);
-    height: calc(90vh - 20px);
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  border-radius: 2vw;
+  margin: 10px;
+  width: calc(80vw - 20px);
+  height: calc(90vh - 20px);
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .songArtist {
-    color: white;
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
 }
 
 .singleSongDisplay {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 .singleSongDisplay img {
-    width: 200px;
-    height: 200px;
-    align-self: center;
+  width: 200px;
+  height: 200px;
+  align-self: center;
 }
 
 .Song-Image {
-    width: 25vw;
-    object-fit: cover;
-    border-radius: 2vw;
+  width: 25vw;
+  object-fit: cover;
+  border-radius: 2vw;
 }

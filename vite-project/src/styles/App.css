@@ -1,11 +1,11 @@
 #root {
   text-align: center;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
   min-height: 100vh;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -17,33 +17,30 @@
   padding: 20px;
 }
 
-body { 
+body {
   margin: 0;
   padding: 0;
   background: repeating-linear-gradient(135deg, #47286c 0%, #3d42a4 50%, #47286c 100%);
   transition: 0.5s;
 }
 
- /* Hide scrollbar for Chrome, Safari and Opera */
+/* Hide scrollbar for Chrome, Safari and Opera */
 *::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 * {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-} 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
-button{
+button {
   border: none;
   cursor: pointer;
   background: none;
 }
 
-
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 600px) {
-
-} 
-
+}

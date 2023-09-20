@@ -15,15 +15,13 @@
   padding: 0;
 }
 
-
-
-#search{
+#search {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;;
+  justify-content: center;
 }
 
 .Logo img {
@@ -32,7 +30,7 @@
   fill: white;
 }
 
-input[type=text] {
+input[type='text'] {
   width: 100%;
   box-sizing: border-box;
   background-color: #eef5e5;
@@ -41,10 +39,9 @@ input[type=text] {
   width: 200px;
   height: 25px;
   color: #1b250e;
-  padding: 10px
+  padding: 10px;
 }
 
 input:focus {
-    outline: none;
-
+  outline: none;
 }

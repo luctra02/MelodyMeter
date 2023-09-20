@@ -3,7 +3,7 @@ import '../styles/grey-box.css';
 import { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { fetchAlbumTracks, fetchPlaylistTracks } from '../utils/script';
-import { addSongToFavourites, checkSongInFavourites, removeSongFromFavourites } from './Favourite';
+import { addSongToFavourites, checkSongInFavourites, removeSongFromFavourites } from '../utils/favouriteFunctions';
 
 interface Track {
   track: { id: string; name: string; artists: { name: string }[]; duration_ms: number };
@@ -111,10 +111,11 @@ function TracksDisplay() {
               {/* <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img> */}
               <h3>{item.name}</h3>
               <h3 className="songSpecificInfo">
-                {item.artists.map((artist: artist, index: number) =>
-                  index === item.artists.length - 1
-                    ? artist.name + ' ' // Don't add a comma after the last item
-                    : artist.name + ', ', // Add a comma after all other items
+                {item.artists.map(
+                  (artist: artist, index: number) =>
+                    index === item.artists.length - 1
+                      ? artist.name + ' ' // Don't add a comma after the last item
+                      : artist.name + ', ', // Add a comma after all other items
                 )}
               </h3>
               <h3 className="songSpecificInfo">
@@ -156,10 +157,11 @@ function TracksDisplay() {
               {/* <img src={item.images.length > 0  ? item.images[0].url: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img> */}
               <h3>{item.track.name}</h3>
               <h3 className="songSpecificInfo">
-                {item.track.artists.map((artist: artist, index: number) =>
-                  index === item.track.artists.length - 1
-                    ? artist.name + ' ' // Don't add a comma after the last item
-                    : artist.name + ', ', // Add a comma after all other items
+                {item.track.artists.map(
+                  (artist: artist, index: number) =>
+                    index === item.track.artists.length - 1
+                      ? artist.name + ' ' // Don't add a comma after the last item
+                      : artist.name + ', ', // Add a comma after all other items
                 )}
               </h3>
               <h3 className="songSpecificInfo">
