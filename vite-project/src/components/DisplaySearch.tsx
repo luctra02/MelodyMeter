@@ -4,7 +4,6 @@ import '../styles/grey-box.css';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-
 interface SpotifyArtist {
   id: string;
   name: string;
@@ -16,7 +15,6 @@ function DisplaySearch() {
   const navigate = useNavigate();
   const location = useLocation();
   const searchTerm = location.state.searchTerm;
-
 
   const [artistArray, setArtistArray] = useState<SpotifyArtist[]>([]);
 

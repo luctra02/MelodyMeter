@@ -5,7 +5,6 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { fetchAlbumTracks, fetchPlaylistTracks } from '../script';
 import { addSongToFavourites, checkSongInFavourites, removeSongFromFavourites } from '../utils/favouriteFunctions';
 
-
 interface Track {
   track: { id: string; name: string; artists: { name: string }[]; duration_ms: number };
   id: string;

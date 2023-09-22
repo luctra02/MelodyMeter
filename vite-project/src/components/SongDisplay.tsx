@@ -4,7 +4,6 @@ import { fetchTracks } from '../script';
 import StatView from './Statview';
 import { useLocation } from 'react-router-dom';
 
-
 function SongDisplay() {
   const [songName, setSongName] = useState('');
   const [songImage, setSongImage] = useState('');

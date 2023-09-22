@@ -3,7 +3,6 @@ import '../styles/statview.css';
 import fetchAudioFeatures, { fetchSongInfo } from '../script';
 import { useLocation } from 'react-router-dom';
 
-
 function StatView() {
   interface SearchResponse {
     tracks: {
