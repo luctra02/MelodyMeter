@@ -83,7 +83,7 @@ export async function fetchSongInfo(token: string | null, searchTerm: string): P
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
-  
+
   return await result.json();
 }
 

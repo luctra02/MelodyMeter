@@ -36,11 +36,11 @@ function StatView() {
         setEnergyStat(Math.floor(AudioFeatures.energy * 100));
         setLoudStat(Math.round(AudioFeatures.loudness));
         setPositiveStat(Math.floor(AudioFeatures.valence * 100));
-    }
-  };
+      }
+    };
 
     getStats();
-},  [songId, song]);
+  }, [songId, song]);
 
   return (
     <div className="statview">
