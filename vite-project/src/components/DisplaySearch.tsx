@@ -15,7 +15,6 @@ function DisplaySearch() {
   const navigate = useNavigate();
   const location = useLocation();
   const searchTerm = location.state.searchTerm;
-
   const [artistArray, setArtistArray] = useState<SpotifyArtist[]>([]);
 
   useEffect(() => {

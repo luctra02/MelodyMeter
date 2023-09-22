@@ -1,92 +1,76 @@
-# Prosjekt1
+# Program Informasjon
+
+MelodyMeter er en nettside for å utforske vurderinger av sanger ved forskjellige kriteria som positivitet, lydhøyde, dansbarhet og energi!
+
+# Installasjon og Setup Instruksjoner
+
+For å kjøre appen lokalt må man først klone dette repositoriet. Du trenger node og npm installert globalt på maskinen din.
+
+Krav:
+
+Node version 20.5+
+npm version 9.8+
+
+## Installasjon:
+
+Hvis du ikke er .\vite-project\ kjør
+
+`cd .\vite-project\`
+
+Etter det kan du installere de riktige pakkene ved
+
+`npm install`
+
+
+## Start Serveren:
+
+`npm run dev`
+
+## For å besøke appen:
+
+localhost:5173
+
+NB! Access tokenen går ut etter en time. Dette betyr at du må restarte applikassjonen hver time.
+
+Et annet alternativ er å gå inn på nettsiden som kjøres av virtual machine på lenken: 
+http://it2810-28.idi.ntnu.no/project1/
+
+Får å komme inn på nettsiden må man være koblet til NTNU nettverket via VPN. 
+
+# Navigasjon av nettsiden:
+
+Man kan søke på artister i søkefeltet på hjemmesiden. Dette vil gi brukeren en liste med artister. Disse artistene er klikkbare knapper. Hvis man klikker på en artist får man opp en liste av albumer og playlister
+knyttet til artisten. Disse er også klikkbare, og vil ta brukeren til en liste av sangene i det albumet/playlisten. Dissse sangene er også klikkbare, og hvis man klikker på dem tar den brukeren til en side hvor man
+kan se forskjellige stats for sangen. Disse statsene er danceability, energy, loudness, and positivity. På oversikten over sangene i en playlist/album kan man også favorite sanger ved å trykke på stjernetegnet. 
+Hvis man trykker på favorite knappen i navbaren tar den brukeren til en side som viser alle favorittsangene deres. Hvis man trykker på disse sangene blir man tatt til siden som viser stats for den sangen som ble nevnt tidligere.
+
+## Bug
+
+Sessionkey i sessionStorage funker ikke på nettsiden som kjøres av VM siden nøkkelen er på klient-siden, men funker helt fint i localhost. Så nettsiden vil ikke funke og huske verdier på VM når brukeren refresher siden, men brukeren kan fortsatt bla fram og tilbake med pilene.
+
+
+# Refleksjon
+
+## Forklaring av valgene våre
+
+Vi har valgt å bruke spotify sitt API. Ressursene vi valgte er: å hente ut er album, playlist, artister, tracks, audio features. Disse vises én og én på nettsiden. Vi brukte state til å lagre informasjon om album, playlist, artister, tracks, audio features, samt brukerens valg av favorittsanger. Data til ressursene ble sendt fra en komponent til en annen ved å bruke navigate og location, siden det var en mer effektiv måte å håndtere props på enn å sende de opp til App.jsx for oss.
+
+Brukeren kan filtrere artister via søkefunksjonen. Søket huskes selv om siden reloades.
+
+Brukeren kan velge favorittsanger når de trykker seg inn på et album eller en playlist. Disse blir lagret og vist på en egen favorittside, og huskes selv etter at nettleseren lukkes. Vi har implementert dette ved hjelp av localStorage. localStorage lagrer alle sanger som har blitt lagt til i favoritter. Vi bruker sessionStorage til å lagre accessToken slik at man slipper å querye en ny token hver gang man refresher siden. 
+
+Brukeren kan navigere seg mellom flere forskjellige web pages. Vi har brukt React Router til å implementere dette.
+
+
+Vi har valgt å bruke spotify sine foreslåtte queries, istedet for Tanstack Query. De er omtrent det samme, men spotify sitt API krever access tokens, og vi fant derfor ikke en måte å bruke Tanstack. Vi endte derfor opp med å følge spotify API dokumentassjonen sin anbefaling om valg av query.
 
 
 
-## Getting started
+## Testing
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Vi har gjort manuelle tester på nettsiden vår på ulike skjermstørrelser (mobil, stasjonær PC, etc.), og mener at siden er meget responsiv. Vi testet om hovedfunksjonalitetene funket overens med det vi har programmert og at de dekket de funskjonelle kravene for prosjektet.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Vi har skrevet snapshot tester for alle funksjonene i script.ts og sjekket verdier som brukere får opp som informasjon når de 
+er på nettsiden. Vi prøvde å kjøre mocking tester for å unngå å hente ut data for hver test, men fant ikke en god løsning å bruke Mock Service Worker til det. Det var vanskelig å teste funksjonene uten å fetche data fra Spotify sin API og vi hadde dårlig tid mot slutten, men tenker å implementere dette i sluttproduktet hvis vi får det til.
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.stud.idi.ntnu.no/it2810-h23/Team-28/prosjekt1.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.stud.idi.ntnu.no/it2810-h23/Team-28/prosjekt1/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Vi prøvde å gjøre brukertesting, men fikk ikke til dette ved å se på guiden som var i forelesningen. Istedenfor gjorde vi manuell brukertesting som nevnt over. 

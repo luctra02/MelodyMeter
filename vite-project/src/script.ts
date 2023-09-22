@@ -1,4 +1,4 @@
-const clientId = '8e124b2906924f8a896a5d55d01c310b'; // Replace with your client id
+const clientId = '8e124b2906924f8a896a5d55d01c310b';
 const secretId = '31a8d64235f2429295252b7fdd3f1387';
 
 interface SpotifyImage {
@@ -61,7 +61,7 @@ interface SpotifyTrackInfo {
   };
 }
 
-export async function getAccessToken(clientId: string): Promise<string> {
+export async function getAccessToken(): Promise<string> {
   const params = new URLSearchParams();
   params.append('client_id', clientId);
   params.append('client_secret', secretId);
@@ -83,7 +83,7 @@ export async function fetchSongInfo(token: string | null, searchTerm: string): P
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
-
+  
   return await result.json();
 }
 
@@ -149,16 +149,3 @@ export async function fetchTracks(token: string | null, id: string): Promise<Spo
 
   return await result.json();
 }
-
-async function main() {
-  let accessToken;
-  if (sessionStorage.getItem('accesstoken') == null) {
-    accessToken = await getAccessToken(clientId);
-    sessionStorage.setItem('accesstoken', accessToken);
-  } else {
-    // Handle the case when the token is already in sessionStorage
-    accessToken = String(sessionStorage.getItem('accesstoken'));
-  }
-}
-
-main();
