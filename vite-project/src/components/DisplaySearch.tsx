@@ -34,6 +34,9 @@ function DisplaySearch() {
 
   return (
     <div className="displayArtists">
+      {artistArray.length === 0 ? (
+          <h1 className="noResults">No Results Found</h1>
+          ) : (
       <div className="Song-List">
         {artistArray.map((item: SpotifyArtist, index: number) => (
           <button key={index} onClick={() => HandleClick(item)}>
@@ -61,6 +64,7 @@ function DisplaySearch() {
           </button>
         ))}
       </div>
+      )}
     </div>
   );
 }
