@@ -21,6 +21,8 @@ function App() {
         <Route path="/project1/searchDisplay" element={<DisplaySearch />} />
         <Route path="/project1/AlbumPlaylistDisplay" element={<AlbumPlaylistDisplay />} />
         <Route path="/project1/TracksDisplay" element={<TracksDisplay />} />
+
+        <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </Router>
   );
