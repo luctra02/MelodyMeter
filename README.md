@@ -74,3 +74,7 @@ Vi har skrevet snapshot tester for alle funksjonene i script.ts og sjekket verdi
 er på nettsiden. Vi prøvde å kjøre mocking tester for å unngå å hente ut data for hver test, men fant ikke en god løsning å bruke Mock Service Worker til det. Det var vanskelig å teste funksjonene uten å fetche data fra Spotify sin API og vi hadde dårlig tid mot slutten, men tenker å implementere dette i sluttproduktet hvis vi får det til.
 
 Vi prøvde å gjøre brukertesting, men fikk ikke til dette ved å se på guiden som var i forelesningen. Istedenfor gjorde vi manuell brukertesting som nevnt over. 
+
+# Endringer fra første innlevering
+
+ [+] Legge til 404 error hvis man prøver å gå til en side som ikke finnes og Tekst som kommer hvis det ikke er noe artister som kommer på søk
