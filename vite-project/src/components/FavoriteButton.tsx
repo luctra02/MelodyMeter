@@ -35,7 +35,7 @@ export default function FavoriteButton(songInfo: {
           }}
         >
           <AiFillStar
-            className="star"
+            className="star star-filled"
             id={`${songInfo.songName}filled`}
           />
         </span>
@@ -47,7 +47,7 @@ export default function FavoriteButton(songInfo: {
             changeFavourite(songInfo.songName, songInfo.songArtist, songInfo.songImage);
           }}
         >
-          <AiOutlineStar className="text-yellow-400" />
+          <AiOutlineStar className="text-yellow-400 star" />
         </span>
       )}
     </div>

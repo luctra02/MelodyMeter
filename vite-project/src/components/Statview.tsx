@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import '../styles/statview.css';
 import fetchAudioFeatures, { fetchSongInfo } from '../script';
 import { useLocation } from 'react-router-dom';
+import { SlEnergy } from "react-icons/sl";
+import { VscSmiley } from "react-icons/vsc";
+import { PiSpeakerHigh } from "react-icons/pi";
+import { GiMusicalNotes } from "react-icons/gi";
 
 function StatView() {
   interface SearchResponse {
@@ -46,22 +50,22 @@ function StatView() {
     <div className="statview">
       <ul>
         <li>
-          <p>Stats</p>
-        </li>
-        <li>
-          <p>Danceability</p>
+        <GiMusicalNotes />
+        <p>Danceability</p>
           <p>{danceStat}%</p>
         </li>
         <li>
-          <p>Energy</p>
+        <SlEnergy/>
+        <p>Energy</p>
           <p>{energyStat}%</p>
         </li>
         <li>
-          <p>Loudness</p>
+        <PiSpeakerHigh /><p>Loudness</p>
           <p>{loudStat}dB</p>
         </li>
         <li>
-          <p>Positivity</p>
+        <VscSmiley />
+        <p>Positivity</p>
           <p>{positiveStat}%</p>
         </li>
       </ul>
