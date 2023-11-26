@@ -8,8 +8,16 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SongDisplay from './components/SongDisplay';
 import DisplaySearch from './components/DisplaySearch';
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
 function App() {
   return (
+    <QueryClientProvider client={queryClient}>
     <Router>
       <div className="App">
         <Navbar />
@@ -25,7 +33,9 @@ function App() {
         <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </Router>
+    </QueryClientProvider>
   );
 }
+
 
 export default App;

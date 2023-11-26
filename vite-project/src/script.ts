@@ -61,6 +61,8 @@ interface SpotifyTrackInfo {
   };
 }
 
+const BASE_URL = "https://api.spotify.com/v1/"
+
 export async function getAccessToken(): Promise<string> {
   const params = new URLSearchParams();
   params.append('client_id', clientId);
@@ -79,7 +81,7 @@ export async function getAccessToken(): Promise<string> {
 }
 
 export async function fetchSongInfo(token: string | null, searchTerm: string): Promise<SpotifyTrackResponse> {
-  const result = await fetch(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`, {
+  const result = await fetch(BASE_URL +  `search?q=${searchTerm}&type=track`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -88,7 +90,7 @@ export async function fetchSongInfo(token: string | null, searchTerm: string): P
 }
 
 export default async function fetchAudioFeatures(token: string | null, id: string): Promise<SpotifyTrackResponse> {
-  const result = await fetch(`https://api.spotify.com/v1/audio-features/${id}`, {
+  const result = await fetch(BASE_URL +  `audio-features/${id}`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -97,7 +99,7 @@ export default async function fetchAudioFeatures(token: string | null, id: strin
 }
 
 export async function fetchArtist(token: string | null, name: string): Promise<SpotifyArtist> {
-  const result = await fetch(`https://api.spotify.com/v1/search?q=${name}&type=artist`, {
+  const result = await fetch(BASE_URL +  `search?q=${name}&type=artist`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -106,7 +108,7 @@ export async function fetchArtist(token: string | null, name: string): Promise<S
 }
 
 export async function fetchAlbum(token: string | null, name: string): Promise<SpotifyAlbumsResponse> {
-  const result = await fetch(`https://api.spotify.com/v1/search?q=artist:${name}&type=album`, {
+  const result = await fetch(BASE_URL +  `search?q=artist:${name}&type=album`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -115,7 +117,7 @@ export async function fetchAlbum(token: string | null, name: string): Promise<Sp
 }
 
 export async function fetchPlaylists(token: string | null, name: string): Promise<SpotifyPlaylistsResponse> {
-  const result = await fetch(`https://api.spotify.com/v1/search?q=${name}&type=playlist`, {
+  const result = await fetch(BASE_URL +  `search?q=${name}&type=playlist`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -124,7 +126,7 @@ export async function fetchPlaylists(token: string | null, name: string): Promis
 }
 
 export async function fetchAlbumTracks(token: string | null, id: string): Promise<SpotifyTrackInfo> {
-  const result = await fetch(`https://api.spotify.com/v1/albums/${id}`, {
+  const result = await fetch(BASE_URL +  `albums/${id}`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -133,7 +135,7 @@ export async function fetchAlbumTracks(token: string | null, id: string): Promis
 }
 
 export async function fetchPlaylistTracks(token: string | null, id: string): Promise<SpotifyTrackInfo> {
-  const result = await fetch(`https://api.spotify.com/v1/playlists/${id}`, {
+  const result = await fetch(BASE_URL +  `playlists/${id}`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -142,7 +144,7 @@ export async function fetchPlaylistTracks(token: string | null, id: string): Pro
 }
 
 export async function fetchTracks(token: string | null, id: string): Promise<SpotifyTrackInfo> {
-  const result = await fetch(`https://api.spotify.com/v1/tracks/${id}`, {
+  const result = await fetch(BASE_URL +  `tracks/${id}`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });
