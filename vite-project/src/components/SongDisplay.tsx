@@ -37,18 +37,20 @@ function SongDisplay() {
       <StatView />
 
       <div className="grey-box">
+        
         <div className="singleSongDisplay">
+          
           <img src={songImage} className="Song-Image"></img>
           <h1 className="songArtist">{songName}</h1>
           <h1 className="songArtist">{artist}</h1>
-        </div>
-        <FavoriteButton
+          <FavoriteButton
           songID={songId}
           songName={songName}
           songArtist={artist}
           songImage={songImg}
         />
       </div>
+        </div>
     </div>
   );
 }

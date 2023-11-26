@@ -80,3 +80,9 @@ Vi prøvde å gjøre brukertesting, men fikk ikke til dette ved å se på guiden
  [+] Legge til 404 error hvis man prøver å gå til en side som ikke finnes og Tekst som kommer hvis det ikke er noe artister som kommer på søk
 
  [+] Ha mulighet til å velge en favoritt på sangsiden
+
+ [+] Små design endringer, logo, statview icons
+
+ [+] Responsiv design, endret fra flex til grid og endring når viewen blir mindre
+
+ [+] Mer bærekraftig design ved bruk av komponenter på kode som blir brukt ofte

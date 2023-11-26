@@ -72,8 +72,7 @@ function TracksDisplay() {
                 {Math.floor((item.duration_ms / 1000) % 60) < 10
                   ? '0' + Math.floor((item.duration_ms / 1000) % 60)
                   : Math.floor((item.duration_ms / 1000) % 60)}
-              </h3>
-              <FavoriteButton
+              </h3>              <FavoriteButton
                 songID={item.id}
                 songName={item.name}
                 songArtist={item.artists[0].name}
@@ -103,7 +102,7 @@ function TracksDisplay() {
                   ? '0' + Math.floor((item.track.duration_ms / 1000) % 60)
                   : Math.floor((item.track.duration_ms / 1000) % 60)}
               </h3>
-              <FavoriteButton
+              <FavoriteButton 
                 songID={item.track.id}
                 songName={item.track.name}
                 songArtist={item.track.artists[0].name}

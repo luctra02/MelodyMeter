@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  margin-top: 75px;
+  height: 100%;
   right: 0;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .statview ul {
