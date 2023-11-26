@@ -78,3 +78,5 @@ Vi prøvde å gjøre brukertesting, men fikk ikke til dette ved å se på guiden
 # Endringer fra første innlevering
 
  [+] Legge til 404 error hvis man prøver å gå til en side som ikke finnes og Tekst som kommer hvis det ikke er noe artister som kommer på søk
+
+ [+] Ha mulighet til å velge en favoritt på sangsiden

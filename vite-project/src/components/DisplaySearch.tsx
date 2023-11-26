@@ -35,35 +35,35 @@ function DisplaySearch() {
   return (
     <div className="displayArtists">
       {artistArray.length === 0 ? (
-          <h1 className="noResults">No Results Found</h1>
-          ) : (
-      <div className="Song-List">
-        {artistArray.map((item: SpotifyArtist, index: number) => (
-          <button key={index} onClick={() => HandleClick(item)}>
-            <div className="Song">
-              <img
-                src={
-                  item.images.length > 0
-                    ? item.images[0].url
-                    : 'https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651'
-                }
-                className="Song-Image"
-              ></img>
+        <h1 className="noResults">No Results Found</h1>
+      ) : (
+        <div className="Song-List">
+          {artistArray.map((item: SpotifyArtist, index: number) => (
+            <button key={index} onClick={() => HandleClick(item)}>
+              <div className="Song">
+                <img
+                  src={
+                    item.images.length > 0
+                      ? item.images[0].url
+                      : 'https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651'
+                  }
+                  className="Song-Image"
+                ></img>
 
-              <h3>
-                {item.name}
-                <div className="genreInfo">
-                  {item.genres.map((genre: string) => (
-                    <h3 className="genres" key={item.name + genre}>
-                      {genre}
-                    </h3>
-                  ))}
-                </div>
-              </h3>
-            </div>
-          </button>
-        ))}
-      </div>
+                <h3>
+                  {item.name}
+                  <div className="genreInfo">
+                    {item.genres.map((genre: string) => (
+                      <h3 className="genres" key={item.name + genre}>
+                        {genre}
+                      </h3>
+                    ))}
+                  </div>
+                </h3>
+              </div>
+            </button>
+          ))}
+        </div>
       )}
     </div>
   );
