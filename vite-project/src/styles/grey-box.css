@@ -8,6 +8,10 @@
   bottom: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 .displayArtists {
   width: calc(100vw - 20px);
   position: relative;

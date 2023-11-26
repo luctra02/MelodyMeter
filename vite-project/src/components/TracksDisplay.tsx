@@ -1,9 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/grey-box.css';
 import { useEffect, useState } from 'react';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { fetchAlbumTracks, fetchPlaylistTracks } from '../script';
-import { addSongToFavourites, checkSongInFavourites, removeSongFromFavourites } from '../utils/favouriteFunctions';
+import FavoriteButton from './FavoriteButton';
 
 interface Track {
   track: { id: string; name: string; artists: { name: string }[]; duration_ms: number };
@@ -27,11 +26,11 @@ function TracksDisplay() {
   const [playlistTracksArray, setPlaylistTracksArray] = useState<Track[]>([]);
 
   function HandleClickAlbum(item: Track) {
-    navigate('/project1/SongDisplay', { state: { albumId: item.id } });
+    navigate('/project1/SongDisplay', { state: { albumId: item.id, artist: item.artists[0].name } });
   }
 
   function HandleClickPlaylist(item: Track) {
-    navigate('/project1/SongDisplay', { state: { playlistId: item.track.id } });
+    navigate('/project1/SongDisplay', { state: { playlistId: item.track.id, artist: item.track.artists[0].name} });
   }
 
   useEffect(() => {
@@ -49,56 +48,6 @@ function TracksDisplay() {
     };
     getStats();
   }, [albumId, playlistId]);
-
-  function changeFavourite(filledId: string, songName: string, artist: string) {
-    const exists = checkSongInFavourites(songName, artist);
-    if (exists) {
-      removeSongFromFavourites(songName, artist);
-      const filledElement = document.getElementById(filledId);
-      if (filledElement) {
-        filledElement.style.display = 'none';
-      } else {
-        console.error(`Element with id ${filledId} not found`);
-      }
-    } else {
-      addSongToFavourites(songName, artist, imageURL);
-      const filledElement = document.getElementById(filledId);
-      if (filledElement) {
-        filledElement.style.display = 'block';
-      } else {
-        console.error(`Element with id ${filledId} not found`);
-      }
-    }
-  }
-
-  function showFavourite(filledId: string, songName: string, artist: string) {
-    const exists = checkSongInFavourites(songName, artist);
-
-    if (exists) {
-      const filledElement = document.getElementById(filledId);
-      if (filledElement) {
-        filledElement.style.display = 'block';
-      } else {
-        console.error(`Element with id ${filledId} not found`);
-      }
-    } else {
-      const filledElement = document.getElementById(filledId);
-      if (filledElement) {
-        filledElement.style.display = 'none';
-      } else {
-        console.error(`Element with id ${filledId} not found`);
-      }
-    }
-  }
-
-  useEffect(() => {
-    albumTracksArray.forEach((item) => {
-      showFavourite(`${item.id}filled`, item.name, item.artists[0].name);
-    });
-    playlistTracksArray.forEach((item) => {
-      showFavourite(`${item.track.id}filled`, item.track.name, item.track.artists[0].name);
-    });
-  }, [albumTracksArray, playlistTracksArray]);
 
   return (
     <div className="displayArtists">
@@ -124,28 +73,12 @@ function TracksDisplay() {
                   ? '0' + Math.floor((item.duration_ms / 1000) % 60)
                   : Math.floor((item.duration_ms / 1000) % 60)}
               </h3>
-              <div style={{ position: 'relative' }}>
-                <span
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    changeFavourite(`${item.id}filled`, item.name, item.artists[0].name);
-                  }}
-                >
-                  <AiOutlineStar className="text-yellow-400" />
-                </span>
-                <span
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    changeFavourite(`${item.id}filled`, item.name, item.artists[0].name);
-                  }}
-                >
-                  <AiFillStar
-                    className="star"
-                    id={`${item.id}filled`}
-                    style={{ position: 'absolute', top: 0, left: 0 }}
-                  />
-                </span>
-              </div>
+              <FavoriteButton
+                songID={item.id}
+                songName={item.name}
+                songArtist={item.artists[0].name}
+                songImage={imageURL}
+              />
             </div>
           </button>
         ))}
@@ -170,28 +103,12 @@ function TracksDisplay() {
                   ? '0' + Math.floor((item.track.duration_ms / 1000) % 60)
                   : Math.floor((item.track.duration_ms / 1000) % 60)}
               </h3>
-              <div style={{ position: 'relative' }}>
-                <span
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    changeFavourite(`${item.track.id}filled`, item.track.name, item.track.artists[0].name);
-                  }}
-                >
-                  <AiOutlineStar className="text-yellow-400" />
-                </span>
-                <span
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    changeFavourite(`${item.track.id}filled`, item.track.name, item.track.artists[0].name);
-                  }}
-                >
-                  <AiFillStar
-                    className="star"
-                    id={`${item.track.id}filled`}
-                    style={{ position: 'absolute', top: 0, left: 0 }}
-                  />
-                </span>
-              </div>
+              <FavoriteButton
+                songID={item.track.id}
+                songName={item.track.name}
+                songArtist={item.track.artists[0].name}
+                songImage={imageURL}
+              />
             </div>
           </button>
         ))}

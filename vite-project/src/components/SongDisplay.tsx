@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchTracks } from '../script';
 import StatView from './Statview';
 import { useLocation } from 'react-router-dom';
+import FavoriteButton from './FavoriteButton';
 
 function SongDisplay() {
   const [songName, setSongName] = useState('');
@@ -12,6 +13,7 @@ function SongDisplay() {
   const songId = location.state.albumId ? location.state.albumId : location.state.playlistId;
   const song = location.state.songName;
   const songImg = location.state.songImage;
+  const artist = location.state.artist;
 
   useEffect(() => {
     const getStats = async () => {
@@ -38,7 +40,14 @@ function SongDisplay() {
         <div className="singleSongDisplay">
           <img src={songImage} className="Song-Image"></img>
           <h1 className="songArtist">{songName}</h1>
+          <h1 className="songArtist">{artist}</h1>
         </div>
+        <FavoriteButton
+          songID={songId}
+          songName={songName}
+          songArtist={artist}
+          songImage={songImg}
+        />
       </div>
     </div>
   );
