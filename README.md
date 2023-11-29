@@ -75,6 +75,8 @@ er på nettsiden. Vi prøvde å kjøre mocking tester for å unngå å hente ut 
 
 Vi prøvde å gjøre brukertesting, men fikk ikke til dette ved å se på guiden som var i forelesningen. Istedenfor gjorde vi manuell brukertesting som nevnt over. 
 
+Vi prøvde å lage mocks menn fikk en del problemer grunnet endring av strukturen av msw, og suboptimal kode for testing som gjorde det vanskeligere enn forventet
+
 # Endringer fra første innlevering
 
  [+] Legge til 404 error hvis man prøver å gå til en side som ikke finnes og Tekst som kommer hvis det ikke er noe artister som kommer på søk
