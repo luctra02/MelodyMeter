@@ -13,24 +13,25 @@ interface Song {
 function Favourite() {
   const navigate = useNavigate();
   const favouritesJSON = localStorage.getItem('favourites');
+  console.log(favouritesJSON)
   const favourites: Song[] = favouritesJSON ? JSON.parse(favouritesJSON) : [];
   //localStorage.setItem("favourites", "[]"); //reset localStorage
   function HandleClick(item: Song) {
     navigate('/project1/SongDisplay', {
-      state: { songName: item.songName, songImage: item.imageURL, artistName: item.artist },
+      state: { songName: item.songName, songImage: item.imageURL, artist: item.artist },
     });
   }
 
   return (
-    <div className="displayArtists">
-      <h1 id="favouriteTitle">My Favourite Songs</h1>
-      <div className="Song-List">
+    <div className='displayArtists'>
+        <div className="Song-List">
         {favourites.map((item: Song) => (
-          <button key={item.songName + item.artist} onClick={() => HandleClick(item)}>
-            <div className="Song">
-              <img src={item.imageURL} className="Song-Image"></img>
-              <h3 className="songArtist">
-                {item.songName}- {item.artist}
+          <button className="displayIndiviualSongsButton" key={item.songName + item.artist} onClick={() => HandleClick(item)}>
+            <div className="Song displayIndiviualSongs">
+              {<img src={item.imageURL.length > 0  ? item.imageURL: "https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651"} className='Song-Image'></img>}
+              <h3>{item.songName}</h3>
+              <h3 className="songSpecificInfo">
+                {item.artist}
               </h3>
             </div>
           </button>

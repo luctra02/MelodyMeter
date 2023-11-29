@@ -53,11 +53,12 @@ function DisplaySearch() {
                 <h3>
                   {item.name}
                   <div className="genreInfo">
-                    {item.genres.map((genre: string) => (
+                    {item.genres.slice(0, 2).map((genre: string) => (
                       <h3 className="genres" key={item.name + genre}>
                         {genre}
                       </h3>
                     ))}
+
                   </div>
                 </h3>
               </div>
