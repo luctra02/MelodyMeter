@@ -75,6 +75,7 @@ button:hover .Song {
 
 .Song-List button {
   max-width: 200px;
+  min-width: 100%;
 }
 
 .displayArtistImage {
