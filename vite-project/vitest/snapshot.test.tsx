@@ -31,7 +31,7 @@ it('fetchAlbum', async () => {
   const albumInfo = await fetchAlbum(accessToken, 'Rick Astley');
   const albumObject = Object.values(albumInfo.albums.items)[3];
   expect(albumObject.name).toMatchInlineSnapshot('"The Best of Me"');
-  expect(albumObject.id).toMatchInlineSnapshot('"2N4vVTdKNVHn6T5rYRJnIS"');
+  expect(albumObject.id).toMatchInlineSnapshot('"6CWdaSQN5rsdDkOrhFcZ0E"');
 });
 
 it('fetchPlaylist', async () => {
@@ -39,8 +39,8 @@ it('fetchPlaylist', async () => {
 
   const playlistObjectName = Object.values(playlistsInfo.playlists.items)[0].name;
   const playlistObjectId = Object.values(playlistsInfo.playlists.items)[0].id;
-  expect(playlistObjectName).toMatchInlineSnapshot('"Indila Mix"');
-  expect(playlistObjectId).toMatchInlineSnapshot('"37i9dQZF1EIVUwM1vK87NG"');
+  expect(playlistObjectName).toMatchInlineSnapshot('"This Is Indila"');
+  expect(playlistObjectId).toMatchInlineSnapshot('"37i9dQZF1DZ06evO0kAMC8"');
 });
 
 it('fetchAlbumTracks', async () => {
@@ -58,8 +58,8 @@ it('fetchPlaylistTracks', async () => {
   console.log(playlistTracksObject);
   const playlistTracksObjectName = (playlistTracksObject as { track: { name: string } }).track.name;
   const playlistTracksObjectDurationMs = (playlistTracksObject as { track: { duration_ms: number } }).track.duration_ms;
-  expect(playlistTracksObjectName).toMatchInlineSnapshot('"I\'m Good (Blue)"');
-  expect(playlistTracksObjectDurationMs).toMatchInlineSnapshot('175238');
+  expect(playlistTracksObjectName).toMatchInlineSnapshot('"Tattoo"');
+  expect(playlistTracksObjectDurationMs).toMatchInlineSnapshot('183374');
 });
 
 it('fetchTracks', async () => {
