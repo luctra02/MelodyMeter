@@ -1,5 +1,5 @@
-const clientId = '8e124b2906924f8a896a5d55d01c310b';
-const secretId = '31a8d64235f2429295252b7fdd3f1387';
+const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
+const secretId = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET;
 
 interface SpotifyImage {
   url: string;
