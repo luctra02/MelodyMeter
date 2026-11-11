@@ -4,10 +4,10 @@ import '../styles/statview.css';
 import fetchAudioFeatures, { fetchSongInfo } from '../script';
 import { useLocation } from 'react-router-dom';
 // Importing icons for different statistics
-import { SlEnergy } from "react-icons/sl";
-import { VscSmiley } from "react-icons/vsc";
-import { PiSpeakerHigh } from "react-icons/pi";
-import { GiMusicalNotes } from "react-icons/gi";
+import { SlEnergy } from 'react-icons/sl';
+import { VscSmiley } from 'react-icons/vsc';
+import { PiSpeakerHigh } from 'react-icons/pi';
+import { GiMusicalNotes } from 'react-icons/gi';
 
 // Functional component for displaying audio statistics of a song
 function StatView() {
@@ -34,6 +34,7 @@ function StatView() {
   useEffect(() => {
     const getStats = async () => {
       const sessionKey = sessionStorage.getItem('accesstoken');
+      console.log(sessionKey);
 
       // Fetching audio statistics based on the presence of songId
       if (!songId) {
@@ -58,6 +59,8 @@ function StatView() {
     getStats();
   }, [songId, song]);
 
+  console.log(danceStat, energyStat, loudStat, positiveStat);
+
   // Rendering the component
   return (
     <div className="statview">
@@ -70,13 +73,14 @@ function StatView() {
         </li>
         {/* Displaying Energy statistic */}
         <li>
-          <SlEnergy/>
+          <SlEnergy />
           <p>Energy</p>
           <p>{energyStat}%</p>
         </li>
         {/* Displaying Loudness statistic */}
         <li>
-          <PiSpeakerHigh /><p>Loudness</p>
+          <PiSpeakerHigh />
+          <p>Loudness</p>
           <p>{loudStat}dB</p>
         </li>
         {/* Displaying Positivity statistic */}

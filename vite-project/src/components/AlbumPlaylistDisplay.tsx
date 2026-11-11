@@ -31,6 +31,7 @@ function AlbumPlaylistDisplay() {
   useEffect(() => {
     const getStats = async () => {
       const sessionKey = sessionStorage.getItem('accesstoken');
+      console.log(sessionKey);
 
       // Fetching albums and updating the state
       const albumsResult = await fetchAlbum(sessionKey, artistInfo.name);
@@ -61,42 +62,52 @@ function AlbumPlaylistDisplay() {
       <h1>Albums</h1>
       <div className="Song-List">
         {/* Mapping through albumArray and rendering buttons for each album */}
-        {albumArray.map((item: Album) => (
-          <button key={item.id} onClick={() => HandleClickAlbum(item)}>
-            <div className="Song">
-              {/* Displaying album image or a default image if not available */}
-              <img
-                src={
-                  item.images.length > 0
-                    ? item.images[0].url
-                    : 'https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651'
-                }
-                className="Song-Image"
-              ></img>
-              <h3>{item.name}</h3>
-            </div>
-          </button>
-        ))}
+        {albumArray.map((item: Album) => {
+          // Null or undefined check for album item
+          if (!item || !item.name) return null; // Skip if item is null or missing the name property
+
+          return (
+            <button key={item.id} onClick={() => HandleClickAlbum(item)}>
+              <div className="Song">
+                {/* Displaying album image or a default image if not available */}
+                <img
+                  src={
+                    item.images.length > 0
+                      ? item.images[0].url
+                      : 'https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651'
+                  }
+                  className="Song-Image"
+                />
+                <h3>{item.name}</h3>
+              </div>
+            </button>
+          );
+        })}
       </div>
       <h1>Playlists</h1>
       <div className="Song-List">
         {/* Mapping through playlistArray and rendering buttons for each playlist */}
-        {playlistArray.map((item: Playlist) => (
-          <button key={item.id} onClick={() => HandleClickPlaylist(item)}>
-            <div className="Song">
-              {/* Displaying playlist image or a default image if not available */}
-              <img
-                src={
-                  item.images.length > 0
-                    ? item.images[0].url
-                    : 'https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651'
-                }
-                className="Song-Image"
-              ></img>
-              <h3>{item.name}</h3>
-            </div>
-          </button>
-        ))}
+        {playlistArray.map((item: Playlist) => {
+          // Null or undefined check for playlist item
+          if (!item || !item.name) return null; // Skip if item is null or missing the name property
+
+          return (
+            <button key={item.id} onClick={() => HandleClickPlaylist(item)}>
+              <div className="Song">
+                {/* Displaying playlist image or a default image if not available */}
+                <img
+                  src={
+                    item.images.length > 0
+                      ? item.images[0].url
+                      : 'https://i.scdn.co/image/ab6761610000e5eba1b1a48354e9a91fef58f651'
+                  }
+                  className="Song-Image"
+                />
+                <h3>{item.name}</h3>
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
